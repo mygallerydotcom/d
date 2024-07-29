@@ -6,42 +6,20 @@
     <title>User Homepage</title>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
-        html {
-            overflow-x: hidden;
-        }
-        body {
-            background-color: black;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-        .welcome-message {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 24px;
-        }
-        .tabs {
-            display: flex;
-            gap: 15px;
-        }
-        .tab {
-            padding: 10px 20px;
-            background-color: #333;
-            border: 1px solid #555;
-            border-radius: 5px;
-            text-decoration: none;
-            color: white;
-            font-size: 18px;
-        }
-        .tab:hover {
-            background-color: #555;
-        }
+        /* Include the updated CSS here */
     </style>
+</head>
+<body>
+    <div class="welcome-message">
+        Welcome to Your Homepage!
+    </div>
+    <div class="tabs">
+        <a href="#" class="tab">Files</a>
+        <a href="#" class="tab">Personal</a>
+        <a href="#" class="tab">Credits</a>
+        <a href="#" class="tab">Users</a>
+    </div>
+
     <script>
         var colour="random";
         var sparkles=50;
@@ -206,39 +184,4 @@
             }
             if (document.body.clientWidth) {
                 if (document.body.clientWidth>0 && document.body.clientWidth<sw_min) sw_min=document.body.clientWidth;
-                if (document.body.clientHeight>0 && document.body.clientHeight<sh_min) sh_min=document.body.clientHeight;
-            }
-            if (sw_min==999999 || sh_min==999999) {
-                sw_min=800;
-                sh_min=600;
-            }
-            swide=sw_min;
-            shigh=sh_min;
-        }
-
-        function createDiv(height, width) {
-            var div=document.createElement("div");
-            div.style.position="absolute";
-            div.style.height=height+"px";
-            div.style.width=width+"px";
-            div.style.overflow="hidden";
-            return (div);
-        }
-
-        function newColour() {
-            return Math.random() < 0.5 ? "rgb(255, 255, 255)" : "rgb(200, 200, 200)";
-        }
-    </script>
-</head>
-<body>
-    <div class="welcome-message">
-        Welcome to Your Homepage!
-    </div>
-    <div class="tabs">
-        <a href="#" class="tab">Files</a>
-        <a href="#" class="tab">Personal</a>
-        <a href="#" class="tab">Credits</a>
-        <a href="#" class="tab">Users</a>
-    </div>
-</body>
-</html>
+                if (document.body.clientHeight>0 && document
