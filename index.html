@@ -14,7 +14,6 @@
             <input type="submit" value="Login">
         </form>
         <div id="errorMessage" class="error-message">
-            <img src="images/anime-girl.gif" alt="Anime Girl" id="errorImg">
             <img id="errorGif" src="images/anime-girl1.gif" alt="Anime Girl">
             <p>Oopsies! Incorrect password.</p>
             <p id="incorrectCounter">Incorrect attempts: 0</p>
@@ -28,7 +27,6 @@
         const errorGif = document.getElementById('errorGif');
         const incorrectCounter = document.getElementById('incorrectCounter');
         const form = document.getElementById('loginForm');
-        const errorImg = document.getElementById('errorImg');
 
         let attempts = 0;
         let isFirstGif = true;
