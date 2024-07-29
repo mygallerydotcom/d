@@ -4,41 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <link rel="stylesheet" href="styles.css">
     <style>
         /* Styles for fade-in/fade-out animations */
-        .fade-in {
-            animation: fadeIn 1s ease-in-out;
-        }
+        .fade-in { animation: fadeIn 1s ease-in-out; }
+        .fade-out { animation: fadeOut 1s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
 
-        .fade-out {
-            animation: fadeOut 1s ease-in-out;
-        }
+        /* Particles.js background */
+        #particles-js { position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: -1; }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        /* Theme toggle button */
+        #themeToggle {
+            position: absolute; top: 10px; right: 10px; padding: 10px 20px;
+            border: none; background-color: #007bff; color: #fff; cursor: pointer;
+            transition: background-color 0.3s;
         }
+        #themeToggle:hover { background-color: #0056b3; }
 
-        @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
+        /* Form styling */
+        .login-container {
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-
-        /* Background music styling */
-        .background-music {
-            display: none; /* Hide the audio element */
+        .login-container:focus-within { transform: scale(1.05); box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+        input[type="password"], input[type="submit"] {
+            border-radius: 4px; padding: 10px; margin: 5px 0; border: 2px solid #ccc; outline: none;
         }
+        input[type="password"]:focus { border-color: #007bff; }
+        input[type="submit"] {
+            background-color: #007bff; color: #fff; border: none; cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        input[type="submit"]:hover { background-color: #0056b3; transform: scale(1.05); }
     </style>
 </head>
 <body>
-    <audio id="backgroundMusic" class="background-music" loop>
-        <source src="sounds/background-music.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
-    
+    <div id="particles-js"></div>
     <h1 id="greeting" class="fade-in"></h1>
-
     <div class="login-container fade-in">
         <form id="loginForm">
             <input type="password" id="password" placeholder="Enter Password" required>
@@ -50,58 +52,57 @@
             <p id="incorrectCounter">Incorrect attempts: 0</p>
         </div>
     </div>
+    <button id="themeToggle">Switch Theme</button>
 
+    <!-- Particles.js Script -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script>
-        const correctPassword = 'paris'; // Replace with your actual password
-        const passwordInput = document.getElementById('password');
-        const errorMessage = document.getElementById('errorMessage');
-        const incorrectCounter = document.getElementById('incorrectCounter');
-        const form = document.getElementById('loginForm');
-        const errorGif = document.getElementById('errorGif');
-        const greeting = document.getElementById('greeting');
-        const backgroundMusic = document.getElementById('backgroundMusic');
-        let attempts = 0;
-        let isFirstGif = true;
+        // Initialize particles.js
+        particlesJS('particles-js', {
+            particles: { number: { value: 80, density: { enable: true, value_area: 800 } },
+                         color: { value: "#ffffff" },
+                         shape: { type: "circle", stroke: { width: 0, color: "#000000" },
+                                   polygon: { nb_sides: 5 } },
+                         opacity: { value: 0.5 },
+                         size: { value: 3, random: true },
+                         line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
+                         move: { enable: true, speed: 6, direction: "none" }
+            },
+            interactivity: { detect_on: "canvas", events: { onhover: { enable: true, mode: "repulse" },
+                                                           onclick: { enable: true, mode: "push" },
+                                                           resize: true }
+            },
+            retina_detect: true
+        });
 
-        // Function to get personalized greeting based on the time of day
-        function getGreeting() {
+        // Theme toggle functionality
+        document.getElementById('themeToggle').addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            document.body.classList.toggle('light-mode');
+        });
+        document.body.classList.add('light-mode');
+
+        // Personalized greeting based on time of day
+        document.getElementById('greeting').textContent = (() => {
             const hour = new Date().getHours();
-            if (hour < 12) return "Good Morning, Joshua";
-            if (hour < 18) return "Good Afternoon, Joshua";
-            return "Good Evening, Joshua";
-        }
+            return hour < 12 ? "Good Morning, Joshua" :
+                   hour < 18 ? "Good Afternoon, Joshua" :
+                               "Good Evening, Joshua";
+        })();
 
-        // Set the personalized greeting
-        greeting.textContent = getGreeting();
-
-        // Play background music
-        backgroundMusic.play();
-
-        form.addEventListener('submit', function(event) {
+        // Form submission and error handling
+        const correctPassword = 'paris';
+        let attempts = 0;
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
             event.preventDefault();
-            const enteredPassword = passwordInput.value;
-
+            const enteredPassword = document.getElementById('password').value;
             if (enteredPassword === correctPassword) {
-                window.location.href = 'success.html'; // Replace with your target page
+                window.location.href = 'success.html';
             } else {
-                attempts++;
-                incorrectCounter.textContent = `Incorrect attempts: ${attempts}`;
-                errorMessage.classList.remove('fade-out');
-                errorMessage.classList.add('fade-in');
-                
-                // Cycle between GIFs
-                if (isFirstGif) {
-                    errorGif.src = 'images/anime-girl2.gif'; // Switch to second GIF
-                } else {
-                    errorGif.src = 'images/anime-girl1.gif'; // Switch back to first GIF
-                }
-                isFirstGif = !isFirstGif; // Toggle the state
-
-                // Hide error message with fade-out
-                setTimeout(() => {
-                    errorMessage.classList.remove('fade-in');
-                    errorMessage.classList.add('fade-out');
-                }, 3000); // Fade out after 3 seconds
+                document.getElementById('incorrectCounter').textContent = `Incorrect attempts: ${++attempts}`;
+                const errorMessage = document.getElementById('errorMessage');
+                errorMessage.classList.replace('fade-out', 'fade-in');
+                setTimeout(() => errorMessage.classList.replace('fade-in', 'fade-out'), 3000);
             }
         });
     </script>
