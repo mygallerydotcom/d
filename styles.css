@@ -1,76 +1,131 @@
-/* Reset some default browser styles */
-body, h1, p {
-    margin: 0;
-    padding: 0;
-}
-
-/* Basic styling for the entire page */
+/* General body styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #000;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
     margin: 0;
-    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f4f4f4;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-/* Styling for the main container */
+body.light-mode {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+body.dark-mode {
+    background-color: #333;
+    color: #f4f4f4;
+}
+
+/* Particles.js container */
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* Greeting styles */
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 2em;
+}
+
+/* Login container styles */
 .login-container {
-    background-color: #222;
+    max-width: 400px;
+    margin: 100px auto;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    max-width: 400px;
-    width: 100%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: #fff;
+    position: relative;
 }
 
-/* Styling for form elements */
-input[type="password"] {
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
+.login-container:focus-within {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Form input styles */
+input[type="password"], input[type="submit"] {
     width: 100%;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 5px 0;
+    border: 2px solid #ccc;
+    outline: none;
     box-sizing: border-box;
-    background-color: #333;
-    color: #fff;
-    font-size: 16px;
-    margin-bottom: 10px;
+}
+
+input[type="password"]:focus {
+    border-color: #007bff;
 }
 
 input[type="submit"] {
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    background-color: #1CB5E0;
+    background-color: #007bff;
     color: #fff;
+    border: none;
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 input[type="submit"]:hover {
-    background-color: #0a9edc;
+    background-color: #0056b3;
+    transform: scale(1.05);
 }
 
-/* Error message styling */
+/* Error message styles */
 .error-message {
     display: none;
+    text-align: center;
     margin-top: 20px;
-    color: #f44336;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f8d7da;
+    color: #721c24;
+    position: relative;
 }
 
 .error-message img {
-    width: 100px;
+    width: 50px;
     height: auto;
-    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
 }
 
-#errorMessage p {
-    font-size: 18px;
-    margin-top: 10px;
+.error-message p {
+    margin: 10px 0;
 }
 
+/* Theme toggle button styles */
+#themeToggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 24px;
+    transition: opacity 0.3s;
+}
+
+#themeToggle:hover {
+    opacity: 0.7;
+}
+
+.theme-icon {
+    font-size: 24px;
+}
+
+.moon-icon {
+    color: #f1c40f; /* Yellow color for moon */
+}
+
+.sun-icon {
+    color: #f39c12; /* Orange color for sun */
+}
