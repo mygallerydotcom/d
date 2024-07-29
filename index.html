@@ -6,7 +6,7 @@
     <title>Login Page</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Styles for fade-in/fade-out animations */
+        /* Inline styles for fade-in/fade-out animations and theme toggle */
         .fade-in {
             animation: fadeIn 1s ease-in-out;
         }
@@ -20,75 +20,6 @@
         @keyframes fadeOut {
             from { opacity: 1; }
             to { opacity: 0; }
-        }
-
-        /* Particles.js background */
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: -1;
-        }
-
-        /* Theme toggle button */
-        #themeToggle {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            padding: 10px;
-            border: none;
-            background: transparent;
-            cursor: pointer;
-            font-size: 24px;
-            transition: opacity 0.3s;
-        }
-        #themeToggle:hover {
-            opacity: 0.7;
-        }
-
-        /* Button for sun and moon icons */
-        .theme-icon {
-            font-size: 24px;
-        }
-        .moon-icon {
-            color: #f1c40f; /* Yellow color for moon */
-        }
-        .sun-icon {
-            color: #f39c12; /* Orange color for sun */
-        }
-
-        /* Form styling */
-        .login-container {
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-            z-index: 1;
-        }
-        .login-container:focus-within {
-            transform: scale(1.05);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        input[type="password"], input[type="submit"] {
-            border-radius: 4px;
-            padding: 10px;
-            margin: 5px 0;
-            border: 2px solid #ccc;
-            outline: none;
-        }
-        input[type="password"]:focus {
-            border-color: #007bff;
-        }
-        input[type="submit"] {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-        input[type="submit"]:hover {
-            background-color: #0056b3;
-            transform: scale(1.05);
         }
     </style>
 </head>
@@ -154,11 +85,13 @@
         const themeToggleButton = document.getElementById('themeToggle');
         const moonIcon = document.querySelector('.moon-icon');
         const sunIcon = document.querySelector('.sun-icon');
-        document.body.classList.add('light-mode');
+        const body = document.body;
+        let isLightMode = true; // Default to light mode
 
         themeToggleButton.addEventListener('click', () => {
-            const isLightMode = document.body.classList.toggle('light-mode');
-            document.body.classList.toggle('dark-mode');
+            isLightMode = !isLightMode;
+            body.classList.toggle('light-mode', isLightMode);
+            body.classList.toggle('dark-mode', !isLightMode);
             moonIcon.style.display = isLightMode ? 'none' : 'inline';
             sunIcon.style.display = isLightMode ? 'inline' : 'none';
         });
@@ -180,9 +113,16 @@
             if (enteredPassword === correctPassword) {
                 window.location.href = 'success.html';
             } else {
-                document.getElementById('incorrectCounter').textContent = `Incorrect attempts: ${++attempts}`;
+                attempts++;
+                document.getElementById('incorrectCounter').textContent = `Incorrect attempts: ${attempts}`;
                 const errorMessage = document.getElementById('errorMessage');
                 errorMessage.classList.replace('fade-out', 'fade-in');
+
+                // Toggle between anime GIFs
+                const errorGif = document.getElementById('errorGif');
+                errorGif.src = errorGif.src.includes('anime-girl1.gif') ? 'images/anime-girl2.gif' : 'images/anime-girl1.gif';
+
+                // Hide error message with fade-out
                 setTimeout(() => errorMessage.classList.replace('fade-in', 'fade-out'), 3000);
             }
         });
