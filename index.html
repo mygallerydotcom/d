@@ -3,25 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css"> <!-- Correct link to CSS -->
+    <link rel="stylesheet" href="styles.css">
     <title>Login</title>
 </head>
 <body>
     <div id="loginContainer">
         <h1>Hello, Welcome back</h1>
         <form id="loginForm">
+            <input type="text" id="username" placeholder="Enter your username">
             <input type="password" id="password" placeholder="Enter your password">
             <input type="submit" value="Login">
         </form>
         <div id="errorMessage" class="error-message">
             <img id="errorGif" src="images/anime-girl1.gif" alt="Anime Girl">
-            <p>Oopsies! Incorrect password.</p>
+            <p>Oopsies! Incorrect username or password.</p>
             <p id="incorrectCounter">Incorrect attempts: 0</p>
         </div>
     </div>
 
     <script>
-        const correctPassword = 'paris'; // Replace with your actual password
+        const correctCredentials = [
+            { username: 'axel', password: 'lolcow12' },
+            { username: 'Joshua', password: 'paris' }
+        ];
+        const usernameInput = document.getElementById('username');
         const passwordInput = document.getElementById('password');
         const errorMessage = document.getElementById('errorMessage');
         const errorGif = document.getElementById('errorGif');
@@ -33,9 +38,14 @@
 
         form.addEventListener('submit', function(event) {
             event.preventDefault();
+            const enteredUsername = usernameInput.value;
             const enteredPassword = passwordInput.value;
 
-            if (enteredPassword === correctPassword) {
+            const isValid = correctCredentials.some(credential =>
+                credential.username === enteredUsername && credential.password === enteredPassword
+            );
+
+            if (isValid) {
                 alert('Login successful!');
                 errorMessage.style.display = 'none'; // Hide error message
                 // Redirect or proceed to another page
