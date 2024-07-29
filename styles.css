@@ -8,6 +8,19 @@
     }
 }
 
+/* Define the sparkle animation */
+@keyframes sparkleAnimation {
+    from {
+        transform: scale(0);
+        opacity: 0.8;
+    }
+    to {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+/* General body styles */
 body {
     font-family: Arial, sans-serif;
     background-color: #1a1a1a; /* Dark background */
@@ -16,7 +29,10 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    overflow: hidden; /* Ensure the sparkle effect does not create scrollbars */
 }
+
+/* Style for the login container */
 #loginContainer {
     background: #333; /* Darker background for the container */
     padding: 20px;
@@ -27,22 +43,30 @@ body {
     max-width: 400px; /* Limit container width */
     width: 100%; /* Ensure it adjusts to smaller screens */
     animation: fadeIn 1s ease-in-out; /* Apply fade-in animation */
+    opacity: 0; /* Initial opacity */
 }
 
+/* Style for the login form */
 #loginForm {
     display: flex;
     flex-direction: column;
     gap: 10px;
     animation: fadeIn 1.5s ease-in-out; /* Apply fade-in animation */
+    opacity: 0; /* Initial opacity */
 }
 
+/* Style for input fields */
 #loginForm input[type="text"],
-@@ -32,31 +44,33 @@
+#loginForm input[type="password"] {
+    padding: 10px;
+    border: 1px solid #555; /* Darker border */
     border-radius: 4px;
     font-size: 16px;
     background-color: #444; /* Slightly lighter background */
     color: #fff; /* White text color */
 }
+
+/* Style for submit button */
 #loginForm input[type="submit"] {
     padding: 10px;
     border: none;
@@ -52,26 +76,48 @@ body {
     font-size: 16px;
     cursor: pointer;
 }
+
+/* Hover effect for submit button */
 #loginForm input[type="submit"]:hover {
     background-color: #0056b3; /* Darker blue on hover */
 }
+
+/* Style for error message container */
 #errorMessage {
     display: none;
     margin-top: 20px;
     animation: fadeIn 2s ease-in-out; /* Apply fade-in animation */
+    opacity: 0; /* Initial opacity */
 }
 
+/* Style for error GIF */
 #errorGif {
     width: 150px; /* Increase width of GIFs */
     height: auto;
     animation: fadeIn 2.5s ease-in-out; /* Apply fade-in animation */
+    opacity: 0; /* Initial opacity */
 }
 
+/* Style for error message text */
 .error-message p {
-@@ -66,5 +80,5 @@ body {
+    color: #ff4d4d; /* Red text color for error message */
+    font-weight: bold;
+}
 
+/* Style for incorrect attempts counter */
 #incorrectCounter {
     font-size: 14px;
-    color: #aaa; /* Light gray text color */
     color: #ff4d4d; /* Light gray text color */
+}
+
+/* Style for sparkle effect */
+.sparkle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: scale(0);
+    animation: sparkleAnimation 1s forwards;
 }
