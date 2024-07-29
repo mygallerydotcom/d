@@ -106,20 +106,3 @@ input[type="submit"]:hover {
     margin: 10px auto;
 }
 
-body {
-    margin: 0;
-    overflow: hidden;
-    height: 100vh;
-    background-color: #000; /* Black background for better visibility */
-}
-
-.trail {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: white; /* Color of the trail */
-    border-radius: 50%;
-    pointer-events: none;
-    opacity: 1;
-    transition: opacity 2s ease-in-out;
-}
