@@ -63,13 +63,13 @@
     </style>
 </head>
 <body>
-    <h1>Welcome Back, Joshua</h1>
+    <h1 id="welcomeMessage">Welcome Back</h1>
 
     <div class="tabs-container">
         <div class="tab" onclick="showTab('files')">Files</div>
         <div class="tab" onclick="showTab('personal')">Personal</div>
         <div class="tab" onclick="showTab('credits')">Credits</div>
-        <div class="tab" onclick="showTab('users')">Users</div>
+        <div class="tab" onclick="redirectToUsers()">Users</div>
     </div>
 
     <div id="files" class="tab-content">
@@ -87,12 +87,16 @@
         <p>Content for the Credits tab goes here.</p>
     </div>
 
-    <div id="users" class="tab-content">
-        <h2>Users Tab</h2>
-        <p>Content for the Users tab goes here.</p>
-    </div>
-
     <script>
+        // Display the username from local storage
+        document.addEventListener('DOMContentLoaded', function() {
+            const username = localStorage.getItem('username');
+            const welcomeMessage = document.getElementById('welcomeMessage');
+            if (username) {
+                welcomeMessage.textContent = `Welcome Back, ${username}`;
+            }
+        });
+
         function showTab(tabId) {
             const tabContents = document.querySelectorAll('.tab-content');
             tabContents.forEach(tab => {
@@ -102,6 +106,10 @@
                     tab.classList.remove('active');
                 }
             });
+        }
+
+        function redirectToUsers() {
+            window.location.href = 'users.html';
         }
     </script>
 </body>
