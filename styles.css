@@ -1,83 +1,68 @@
-/* styles.css */
 body {
     font-family: Arial, sans-serif;
-    background-color: #000; /* Black background */
-    color: #fff; /* White text color for contrast */
-    margin: 0;
-    padding: 0;
+    background-color: #1a1a1a; /* Dark background */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    margin: 0;
 }
 
 #loginContainer {
-    background-color: #333; /* Dark grey background for the container */
+    background: #333; /* Darker background for the container */
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Slightly visible white shadow */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     text-align: center;
-    width: 500px; /* Set a fixed width for the container */
-}
-
-h1 {
-    margin-bottom: 20px;
-    color: #fff; /* White text color for the heading */
+    color: #fff; /* White text color */
 }
 
 #loginForm {
     display: flex;
-    flex-direction: column; /* Stack input fields vertically */
-    align-items: center; /* Center input fields horizontally */
+    flex-direction: column;
+    gap: 10px;
 }
 
+#loginForm input[type="text"],
 #loginForm input[type="password"] {
-    width: 100%; /* Full width of the container */
     padding: 10px;
-    margin-bottom: 10px;
     border: 1px solid #555; /* Darker border */
     border-radius: 4px;
-    background-color: #222; /* Dark background for input field */
-    color: #fff; /* White text color for input field */
-    box-sizing: border-box; /* Include padding in width calculation */
+    font-size: 16px;
+    background-color: #444; /* Slightly lighter background */
+    color: #fff; /* White text color */
 }
 
 #loginForm input[type="submit"] {
-    width: 100%; /* Full width of the container */
     padding: 10px;
     border: none;
     border-radius: 4px;
-    background-color: #007bff; /* Blue background for submit button */
-    color: #fff; /* White text color for button */
+    background-color: #007BFF; /* Blue color for the button */
+    color: #fff; /* White text color */
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s;
 }
 
 #loginForm input[type="submit"]:hover {
     background-color: #0056b3; /* Darker blue on hover */
 }
 
-.error-message {
+#errorMessage {
     display: none;
     margin-top: 20px;
-    color: #ff0000; /* Red text color for error message */
-}
-
-.error-message img {
-    width: 50px;
-    height: 50px;
-    display: block;
-    margin: 0 auto;
 }
 
 #errorGif {
     width: 100px;
-    height: 100px;
-    display: block;
-    margin: 0 auto;
+    height: auto;
+}
+
+.error-message p {
+    color: #ff4d4d; /* Red text color for error message */
+    font-weight: bold;
 }
 
 #incorrectCounter {
-    margin-top: 10px;
+    font-size: 14px;
+    color: #aaa; /* Light gray text color */
 }
