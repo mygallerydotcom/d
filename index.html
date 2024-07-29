@@ -5,50 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            background-color: black; /* Ensure background is black */
-            color: white; /* Ensure text is white */
-        }
-        .error-message {
-            display: none;
-        }
-    </style>
 </head>
 <body>
     <div id="loginContainer">
         <h1>Hello, Welcome back</h1>
         <form id="loginForm">
-            <input type="text" id="username" placeholder="Enter your username" required>
-            <input type="password" id="password" placeholder="Enter your password" required>
+            <input type="password" id="password" placeholder="Enter your password">
             <input type="submit" value="Login">
         </form>
         <div id="errorMessage" class="error-message">
             <img src="images/anime-girl.gif" alt="Anime Girl">
             <img id="errorGif" src="images/anime-girl1.gif" alt="Anime Girl">
-            <p>Oopsies! Incorrect password or username.</p>
+            <p>Oopsies! Incorrect password.</p>
             <p id="incorrectCounter">Incorrect attempts: 0</p>
         </div>
     </div>
 
     <script>
-        const correctUsername = 'Joshua'; // Required username
+        const correctPassword = 'yourPassword'; // Replace with your actual password
         const correctPassword = 'paris'; // Replace with your actual password
-        const usernameInput = document.getElementById('username');
         const passwordInput = document.getElementById('password');
         const errorMessage = document.getElementById('errorMessage');
-        const incorrectCounter = document.getElementById('incorrectCounter');
-        const form = document.getElementById('loginForm');
-        const errorGif = document.getElementById('errorGif');
-        let attempts = 0;
-        let isFirstGif = true;
+@@ -21,7 +32,13 @@
 
         form.addEventListener('submit', function(event) {
             event.preventDefault();
-            const enteredUsername = usernameInput.value;
+@@ -38,6 +40,14 @@ <h1>Hello, Welcome back</h1>
             const enteredPassword = passwordInput.value;
 
-            if (enteredUsername === correctUsername && enteredPassword === correctPassword) {
+            if (enteredPassword === correctPassword) {
                 alert('Login successful!');
                 errorMessage.style.display = 'none'; // Hide error message
                 // Redirect or proceed to another page
