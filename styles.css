@@ -1,4 +1,4 @@
-add it to this /* Define the fade-in animation */
+/* Define the fade-in animation */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -17,7 +17,6 @@ body {
     height: 100vh;
     margin: 0;
 }
-
 #loginContainer {
     background: #333; /* Darker background for the container */
     padding: 20px;
@@ -38,15 +37,12 @@ body {
 }
 
 #loginForm input[type="text"],
-#loginForm input[type="password"] {
-    padding: 10px;
-    border: 1px solid #555; /* Darker border */
+@@ -32,31 +44,33 @@
     border-radius: 4px;
     font-size: 16px;
     background-color: #444; /* Slightly lighter background */
     color: #fff; /* White text color */
 }
-
 #loginForm input[type="submit"] {
     padding: 10px;
     border: none;
@@ -56,11 +52,9 @@ body {
     font-size: 16px;
     cursor: pointer;
 }
-
 #loginForm input[type="submit"]:hover {
     background-color: #0056b3; /* Darker blue on hover */
 }
-
 #errorMessage {
     display: none;
     margin-top: 20px;
@@ -74,11 +68,10 @@ body {
 }
 
 .error-message p {
-    color: #ff4d4d; /* Red text color for error message */
-    font-weight: bold;
-}
+@@ -66,5 +80,5 @@ body {
 
 #incorrectCounter {
     font-size: 14px;
+    color: #aaa; /* Light gray text color */
     color: #ff4d4d; /* Light gray text color */
 }
