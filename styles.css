@@ -17,6 +17,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Slightly visible white shadow */
     text-align: center;
+    width: 300px; /* Set a fixed width for the container */
 }
 
 h1 {
@@ -24,18 +25,25 @@ h1 {
     color: #fff; /* White text color for the heading */
 }
 
+#loginForm {
+    display: flex;
+    flex-direction: column; /* Stack input fields vertically */
+    align-items: center; /* Center input fields horizontally */
+}
+
 #loginForm input[type="password"] {
-    width: 100%;
+    width: 100%; /* Full width of the container */
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #555; /* Darker border */
     border-radius: 4px;
     background-color: #222; /* Dark background for input field */
     color: #fff; /* White text color for input field */
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
 #loginForm input[type="submit"] {
-    width: 100%;
+    width: 100%; /* Full width of the container */
     padding: 10px;
     border: none;
     border-radius: 4px;
