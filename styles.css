@@ -17,7 +17,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Slightly visible white shadow */
     text-align: center;
-    width: 300px; /* Set a fixed width for the container */
+    width: 500px; /* Set a fixed width for the container */
 }
 
 h1 {
