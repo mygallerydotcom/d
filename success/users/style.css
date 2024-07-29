@@ -1,17 +1,17 @@
 /* General body styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: #1a1a1a; /* Dark background */
+    background-color: #1a1a1a; /* Dark background for the entire page */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
+    margin: 0; /* Ensure no margin around the body */
 }
 
 /* Users section styling */
 #usersSection {
-    background: #333; /* Dark background */
+    background: #333; /* Dark background for the section */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
