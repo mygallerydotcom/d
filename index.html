@@ -8,6 +8,10 @@
     <style>
         body {
             background-color: black; /* Ensure background is black */
+            color: white; /* Ensure text is white */
+        }
+        .error-message {
+            display: none;
         }
     </style>
 </head>
@@ -16,20 +20,22 @@
         <h1>Hello, Welcome back</h1>
         <form id="loginForm">
             <input type="text" id="username" placeholder="Enter your username" required>
-            <input type="password" id="password" placeholder="Enter your password">
+            <input type="password" id="password" placeholder="Enter your password" required>
             <input type="submit" value="Login">
         </form>
         <div id="errorMessage" class="error-message">
+            <img src="images/anime-girl.gif" alt="Anime Girl">
             <img id="errorGif" src="images/anime-girl1.gif" alt="Anime Girl">
-            <p>Oopsies! Incorrect password.</p>
+            <p>Oopsies! Incorrect password or username.</p>
             <p id="incorrectCounter">Incorrect attempts: 0</p>
         </div>
     </div>
 
     <script>
+        const correctUsername = 'Joshua'; // Required username
         const correctPassword = 'paris'; // Replace with your actual password
-        const passwordInput = document.getElementById('password');
         const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
         const errorMessage = document.getElementById('errorMessage');
         const incorrectCounter = document.getElementById('incorrectCounter');
         const form = document.getElementById('loginForm');
@@ -39,17 +45,17 @@
 
         form.addEventListener('submit', function(event) {
             event.preventDefault();
-            const enteredPassword = passwordInput.value;
             const enteredUsername = usernameInput.value;
+            const enteredPassword = passwordInput.value;
 
-            if (enteredPassword === correctPassword) {
-                localStorage.setItem('username', enteredUsername); // Store username
-                window.location.href = 'success.html'; // Redirect to success.html
+            if (enteredUsername === correctUsername && enteredPassword === correctPassword) {
+                alert('Login successful!');
+                errorMessage.style.display = 'none'; // Hide error message
+                // Redirect or proceed to another page
             } else {
                 attempts++;
                 incorrectCounter.textContent = `Incorrect attempts: ${attempts}`;
                 errorMessage.style.display = 'block';
-
                 // Cycle between GIFs
                 if (isFirstGif) {
                     errorGif.src = 'images/anime-girl2.gif'; // Switch to second GIF
