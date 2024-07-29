@@ -1,1 +1,85 @@
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
 
+.profile-container {
+    width: 300px;
+    background: #222;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.banner {
+    width: 100%;
+    height: 100px;
+    background: url('banner-image.jpg') no-repeat center center;
+    background-size: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.profile-container img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    object-fit: cover;
+    margin-top: -50px; /* Overlapping the banner */
+    z-index: 1;
+}
+
+.profile-container h1 {
+    margin: 50px 0 10px;
+    font-size: 24px;
+    color: #fff;
+    text-shadow: 0 0 15px #fff, 0 0 25px #fff;
+}
+
+.profile-container .bio {
+    margin: 20px 0;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.profile-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.profile-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border-radius: 25px; /* Oval shape */
+    background: #444;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.profile-links a:hover {
+    background: #555;
+    transform: scale(1.1);
+}
+
+.additional-content {
+    font-size: 14px;
+    color: #ccc;
+}
