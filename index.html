@@ -1,7 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="loginContainer">
+        <h1>Hello, Welcome back</h1>
+        <form id="loginForm">
+            <input type="password" id="password" placeholder="Enter your password">
             <input type="submit" value="Login">
         </form>
         <div id="errorMessage" class="error-message">
-            <img src="images/anime-girl.gif" alt="Anime Girl">
             <img id="errorGif" src="images/anime-girl1.gif" alt="Anime Girl">
             <p>Oopsies! Incorrect password.</p>
             <p id="incorrectCounter">Incorrect attempts: 0</p>
@@ -9,7 +21,6 @@
     </div>
 
     <script>
-        const correctPassword = 'yourPassword'; // Replace with your actual password
         const correctPassword = 'paris'; // Replace with your actual password
         const passwordInput = document.getElementById('password');
         const errorMessage = document.getElementById('errorMessage');
@@ -21,7 +32,13 @@
 
         form.addEventListener('submit', function(event) {
             event.preventDefault();
-@@ -38,6 +40,14 @@ <h1>Hello, Welcome back</h1>
+            const enteredPassword = passwordInput.value;
+
+            if (enteredPassword === correctPassword) {
+                alert('Login successful!');
+                errorMessage.style.display = 'none'; // Hide error message
+                // Redirect or proceed to another page
+            } else {
                 attempts++;
                 incorrectCounter.textContent = `Incorrect attempts: ${attempts}`;
                 errorMessage.style.display = 'block';
