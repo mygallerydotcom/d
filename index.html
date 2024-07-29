@@ -14,19 +14,21 @@
             <input type="submit" value="Login">
         </form>
         <div id="errorMessage" class="error-message">
-            <img src="images/anime-girl.gif" alt="Anime Girl">
+            <img id="errorGif" src="images/anime-girl1.gif" alt="Anime Girl">
             <p>Oopsies! Incorrect password.</p>
             <p id="incorrectCounter">Incorrect attempts: 0</p>
         </div>
     </div>
 
     <script>
-        const correctPassword = 'yourPassword'; // Replace with your actual password
+        const correctPassword = 'paris'; // Replace with your actual password
         const passwordInput = document.getElementById('password');
         const errorMessage = document.getElementById('errorMessage');
         const incorrectCounter = document.getElementById('incorrectCounter');
         const form = document.getElementById('loginForm');
+        const errorGif = document.getElementById('errorGif');
         let attempts = 0;
+        let isFirstGif = true;
 
         form.addEventListener('submit', function(event) {
             event.preventDefault();
@@ -38,6 +40,14 @@
                 attempts++;
                 incorrectCounter.textContent = `Incorrect attempts: ${attempts}`;
                 errorMessage.style.display = 'block';
+
+                // Cycle between GIFs
+                if (isFirstGif) {
+                    errorGif.src = 'images/anime-girl2.gif'; // Switch to second GIF
+                } else {
+                    errorGif.src = 'images/anime-girl1.gif'; // Switch back to first GIF
+                }
+                isFirstGif = !isFirstGif; // Toggle the state
             }
         });
     </script>
