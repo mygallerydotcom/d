@@ -18,6 +18,7 @@ body {
     margin: 0;
 }
 
+/* Style for the login container */
 #loginContainer {
     background: #333; /* Darker background for the container */
     padding: 20px;
@@ -30,6 +31,7 @@ body {
     animation: fadeIn 1s ease-in-out; /* Apply fade-in animation */
 }
 
+/* Style for the login form */
 #loginForm {
     display: flex;
     flex-direction: column;
@@ -37,6 +39,7 @@ body {
     animation: fadeIn 1.5s ease-in-out; /* Apply fade-in animation */
 }
 
+/* Style for input fields */
 #loginForm input[type="text"],
 #loginForm input[type="password"] {
     padding: 10px;
@@ -47,6 +50,7 @@ body {
     color: #fff; /* White text color */
 }
 
+/* Style for submit button */
 #loginForm input[type="submit"] {
     padding: 10px;
     border: none;
@@ -57,28 +61,56 @@ body {
     cursor: pointer;
 }
 
+/* Hover effect for submit button */
 #loginForm input[type="submit"]:hover {
     background-color: #0056b3; /* Darker blue on hover */
 }
 
+/* Style for error message container */
 #errorMessage {
     display: none;
     margin-top: 20px;
     animation: fadeIn 2s ease-in-out; /* Apply fade-in animation */
 }
 
+/* Style for error GIF */
 #errorGif {
     width: 150px; /* Increase width of GIFs */
     height: auto;
     animation: fadeIn 2.5s ease-in-out; /* Apply fade-in animation */
 }
 
+/* Style for error message text */
 .error-message p {
     color: #ff4d4d; /* Red text color for error message */
     font-weight: bold;
 }
 
+/* Style for incorrect attempts counter */
 #incorrectCounter {
     font-size: 14px;
     color: #ff4d4d; /* Light gray text color */
+}
+
+/* Style for sparkle effect */
+.sparkle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: scale(0);
+    animation: sparkleAnimation 1s forwards;
+}
+
+@keyframes sparkleAnimation {
+    from {
+        transform: scale(0);
+        opacity: 0.8;
+    }
+    to {
+        transform: scale(1);
+        opacity: 0;
+    }
 }
