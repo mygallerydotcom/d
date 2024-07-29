@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <href><styles class="css"></styles></href>
+    <link rel="stylesheet" href="styles.css"> <!-- Correct link to CSS -->
     <title>Login</title>
-
 </head>
 <body>
     <div id="loginContainer">
@@ -26,9 +25,15 @@
         const correctPassword = 'paris'; // Replace with your actual password
         const passwordInput = document.getElementById('password');
         const errorMessage = document.getElementById('errorMessage');
+        const errorGif = document.getElementById('errorGif');
+        const incorrectCounter = document.getElementById('incorrectCounter');
+        const form = document.getElementById('loginForm');
+
+        let attempts = 0;
+        let isFirstGif = true;
 
         form.addEventListener('submit', function(event) {
-            event.preventDefault(); <h1>Hello, Welcome back</h1>
+            event.preventDefault();
             const enteredPassword = passwordInput.value;
 
             if (enteredPassword === correctPassword) {
@@ -51,4 +56,3 @@
     </script>
 </body>
 </html>
-
