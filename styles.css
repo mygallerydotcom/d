@@ -1,3 +1,13 @@
+/* Define the fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #1a1a1a; /* Dark background */
@@ -17,12 +27,14 @@ body {
     color: #fff; /* White text color */
     max-width: 400px; /* Limit container width */
     width: 100%; /* Ensure it adjusts to smaller screens */
+    animation: fadeIn 1s ease-in-out; /* Apply fade-in animation */
 }
 
 #loginForm {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    animation: fadeIn 1.5s ease-in-out; /* Apply fade-in animation */
 }
 
 #loginForm input[type="text"],
@@ -52,11 +64,13 @@ body {
 #errorMessage {
     display: none;
     margin-top: 20px;
+    animation: fadeIn 2s ease-in-out; /* Apply fade-in animation */
 }
 
 #errorGif {
     width: 150px; /* Increase width of GIFs */
     height: auto;
+    animation: fadeIn 2.5s ease-in-out; /* Apply fade-in animation */
 }
 
 .error-message p {
@@ -66,5 +80,5 @@ body {
 
 #incorrectCounter {
     font-size: 14px;
-    color: #aaa; /* Light gray text color */
+    color: #ff4d4d; /* Light gray text color */
 }
