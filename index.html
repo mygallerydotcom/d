@@ -1,86 +1,30 @@
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Styles for fade-in/fade-out animations */
-        .fade-in {
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        .fade-out {
-            animation: fadeOut 1s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
-        }
-
-        /* Background music styling */
-        .background-music {
-            display: none; /* Hide the audio element */
-        }
-    </style>
-</head>
-<body>
-    <h1>Hello, Welcome back</h1>
-    <div class="login-container">
-    <audio id="backgroundMusic" class="background-music" loop>
-        <source src="sounds/background-music.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
-
-    <h1 id="greeting" class="fade-in"></h1>
-
-    <div class="login-container fade-in">
-        <form id="loginForm">
-            <input type="password" id="password" placeholder="Enter Password" required>
             <input type="submit" value="Login">
         </form>
         <div id="errorMessage" class="error-message">
-        <div id="errorMessage" class="error-message fade-out">
+            <img src="images/anime-girl.gif" alt="Anime Girl">
             <img id="errorGif" src="images/anime-girl1.gif" alt="Anime Girl">
             <p>Oopsies! Incorrect password.</p>
             <p id="incorrectCounter">Incorrect attempts: 0</p>
-@@ -27,9 +58,25 @@ <h1>Hello, Welcome back</h1>
+        </div>
+    </div>
+
+    <script>
+        const correctPassword = 'yourPassword'; // Replace with your actual password
+        const correctPassword = 'paris'; // Replace with your actual password
+        const passwordInput = document.getElementById('password');
+        const errorMessage = document.getElementById('errorMessage');
         const incorrectCounter = document.getElementById('incorrectCounter');
         const form = document.getElementById('loginForm');
         const errorGif = document.getElementById('errorGif');
-        const greeting = document.getElementById('greeting');
-        const backgroundMusic = document.getElementById('backgroundMusic');
         let attempts = 0;
         let isFirstGif = true;
 
-        // Function to get personalized greeting based on the time of day
-        function getGreeting() {
-            const hour = new Date().getHours();
-            if (hour < 12) return "Good Morning, Joshua";
-            if (hour < 18) return "Good Afternoon, Joshua";
-            return "Good Evening, Joshua";
-        }
-
-        // Set the personalized greeting
-        greeting.textContent = getGreeting();
-
-        // Play background music
-        backgroundMusic.play();
-
         form.addEventListener('submit', function(event) {
             event.preventDefault();
-            const enteredPassword = passwordInput.value;
-@@ -39,15 +86,22 @@ <h1>Hello, Welcome back</h1>
-            } else {
+@@ -38,6 +40,14 @@ <h1>Hello, Welcome back</h1>
                 attempts++;
                 incorrectCounter.textContent = `Incorrect attempts: ${attempts}`;
                 errorMessage.style.display = 'block';
-
-                errorMessage.classList.remove('fade-out');
-                errorMessage.classList.add('fade-in');
 
                 // Cycle between GIFs
                 if (isFirstGif) {
@@ -89,12 +33,8 @@
                     errorGif.src = 'images/anime-girl1.gif'; // Switch back to first GIF
                 }
                 isFirstGif = !isFirstGif; // Toggle the state
-
-                // Hide error message with fade-out
-                setTimeout(() => {
-                    errorMessage.classList.remove('fade-in');
-                    errorMessage.classList.add('fade-out');
-                }, 3000); // Fade out after 3 seconds
             }
         });
     </script>
+</body>
+</html>
