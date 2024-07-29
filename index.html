@@ -35,9 +35,7 @@
             const enteredPassword = passwordInput.value;
 
             if (enteredPassword === correctPassword) {
-                alert('Login successful!');
-                errorMessage.style.display = 'none'; // Hide error message
-                // Redirect or proceed to another page
+                window.location.href = 'success.html'; // Redirect to success.html
             } else {
                 attempts++;
                 incorrectCounter.textContent = `Incorrect attempts: ${attempts}`;
