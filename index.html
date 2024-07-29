@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Login</title>
+    <style>
+        /* Inline styles to set initial opacity to 0 */
+        #loginContainer, #loginForm, #errorMessage, #errorGif {
+            opacity: 0;
+        }
+    </style>
 </head>
 <body>
     <div id="loginContainer">
@@ -46,9 +52,7 @@
             );
 
             if (isValid) {
-                alert('Login successful!');
-                errorMessage.style.display = 'none'; // Hide error message
-                // Redirect or proceed to another page
+                window.location.href = '/success'; // Redirect to /success on valid credentials
             } else {
                 attempts++;
                 incorrectCounter.textContent = `Incorrect attempts: ${attempts}`;
@@ -61,6 +65,20 @@
                 }
                 isFirstGif = !isFirstGif; // Toggle the state
             }
+
+            // Trigger fade-in effect by adding a class or inline style
+            document.getElementById('loginContainer').style.opacity = 1;
+            document.getElementById('loginForm').style.opacity = 1;
+            document.getElementById('errorMessage').style.opacity = 1;
+            document.getElementById('errorGif').style.opacity = 1;
+        });
+
+        // Trigger fade-in effect on page load
+        window.addEventListener('load', () => {
+            document.getElementById('loginContainer').style.opacity = 1;
+            document.getElementById('loginForm').style.opacity = 1;
+            document.getElementById('errorMessage').style.opacity = 1;
+            document.getElementById('errorGif').style.opacity = 1;
         });
     </script>
 </body>
