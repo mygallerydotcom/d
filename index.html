@@ -1,7 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <link rel="stylesheet" href="styles.css">
@@ -32,11 +28,13 @@
     </style>
 </head>
 <body>
+    <h1>Hello, Welcome back</h1>
+    <div class="login-container">
     <audio id="backgroundMusic" class="background-music" loop>
         <source src="sounds/background-music.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
-    
+
     <h1 id="greeting" class="fade-in"></h1>
 
     <div class="login-container fade-in">
@@ -44,17 +42,12 @@
             <input type="password" id="password" placeholder="Enter Password" required>
             <input type="submit" value="Login">
         </form>
+        <div id="errorMessage" class="error-message">
         <div id="errorMessage" class="error-message fade-out">
             <img id="errorGif" src="images/anime-girl1.gif" alt="Anime Girl">
             <p>Oopsies! Incorrect password.</p>
             <p id="incorrectCounter">Incorrect attempts: 0</p>
-        </div>
-    </div>
-
-    <script>
-        const correctPassword = 'paris'; // Replace with your actual password
-        const passwordInput = document.getElementById('password');
-        const errorMessage = document.getElementById('errorMessage');
+@@ -27,9 +58,25 @@ <h1>Hello, Welcome back</h1>
         const incorrectCounter = document.getElementById('incorrectCounter');
         const form = document.getElementById('loginForm');
         const errorGif = document.getElementById('errorGif');
@@ -80,15 +73,15 @@
         form.addEventListener('submit', function(event) {
             event.preventDefault();
             const enteredPassword = passwordInput.value;
-
-            if (enteredPassword === correctPassword) {
-                window.location.href = 'success.html'; // Replace with your target page
+@@ -39,15 +86,22 @@ <h1>Hello, Welcome back</h1>
             } else {
                 attempts++;
-                incorrectCounter.textContent = Incorrect attempts: ${attempts};
+                incorrectCounter.textContent = `Incorrect attempts: ${attempts}`;
+                errorMessage.style.display = 'block';
+
                 errorMessage.classList.remove('fade-out');
                 errorMessage.classList.add('fade-in');
-                
+
                 // Cycle between GIFs
                 if (isFirstGif) {
                     errorGif.src = 'images/anime-girl2.gif'; // Switch to second GIF
@@ -105,5 +98,3 @@
             }
         });
     </script>
-</body>
-</html>
