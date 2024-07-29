@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Login</title>
+    <style>
+        /* Inline styles to set initial opacity to 0 */
+        #loginContainer, #loginForm, #errorMessage, #errorGif {
+            opacity: 0;
 const correctCredentials = [
     { username: 'axel', password: 'lolcow12' },
     { username: 'Joshua', password: 'paris' },
@@ -19,6 +30,16 @@ function setOpacity(elements, value) {
         if (element) {
             element.style.opacity = value;
         }
+        /* Additional CSS for the sparkle effect */
+        .sparkle {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: scale(0);
+            animation: sparkleAnimation 1s forwards;
     });
 }
 
@@ -43,6 +64,258 @@ form.addEventListener('submit', function(event) {
         } else {
             errorGif.src = 'images/anime-girl1.gif'; // Switch back to first GIF
         }
+        @keyframes sparkleAnimation {
+            from {
+                transform: scale(0);
+                opacity: 0.8;
+            }
+            to {
+                transform: scale(1);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="loginContainer">
+        <h1>Hello, Welcome back</h1>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Enter your username">
+            <input type="password" id="password" placeholder="Enter your password">
+            <input type="submit" value="Login">
+        </form>
+        <div id="errorMessage" class="error-message">
+            <img id="errorGif" src="images/anime-girl1.gif" alt="Anime Girl">
+            <p>Oopsies! Incorrect username or password.</p>
+            <p id="incorrectCounter">Incorrect attempts: 0</p>
+        </div>
+    </div>
+
+    <script>
+        const correctCredentials = [
+            { username: 'axel', password: 'lolcow12' },
+            { username: 'Joshua', password: 'paris' }
+            { username: 'frawd', password: 'pasta' }
+        ];
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+        const errorMessage = document.getElementById('errorMessage');
+        const errorGif = document.getElementById('errorGif');
+        const incorrectCounter = document.getElementById('incorrectCounter');
+        const form = document.getElementById('loginForm');
+
+        let attempts = 0;
+        let isFirstGif = true;
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const enteredUsername = usernameInput.value;
+            const enteredPassword = passwordInput.value;
+
+            const isValid = correctCredentials.some(credential =>
+                credential.username === enteredUsername && credential.password === enteredPassword
+            );
+
+            if (isValid) {
+                window.location.href = 'success/'; // Redirect to /success on valid credentials
+            } else {
+                attempts++;
+                incorrectCounter.textContent = `Incorrect attempts: ${attempts}`;
+                errorMessage.style.display = 'block';
+                // Cycle between GIFs
+                if (isFirstGif) {
+                    errorGif.src = 'images/anime-girl2.gif'; // Switch to second GIF
+                } else {
+                    errorGif.src = 'images/anime-girl1.gif'; // Switch back to first GIF
+                }
+                isFirstGif = !isFirstGif; // Toggle the state
+            }
+
+            // Trigger fade-in effect by adding a class or inline style
+            document.getElementById('loginContainer').style.opacity = 1;
+            document.getElementById('loginForm').style.opacity = 1;
+            document.getElementById('errorMessage').style.opacity = 1;
+            document.getElementById('errorGif').style.opacity = 1;
+        });
+
+        // Trigger fade-in effect on page load
+        window.addEventListener('load', () => {
+            document.getElementById('loginContainer').style.opacity = 1;
+            document.getElementById('loginForm').style.opacity = 1;
+            document.getElementById('errorMessage').style.opacity = 1;
+            document.getElementById('errorGif').style.opacity = 1;
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const sparkles = 50;
+            const tiny = [];
+            const star = [];
+            const starv = [];
+            const starx = [];
+            const stary = [];
+            const tinyx = [];
+            const tinyy = [];
+            const tinyv = [];
+
+            let x = 400, y = 300;
+            let ox = x, oy = y;
+            let swide = 800, shigh = 600;
+            let sleft = 0, sdown = 0;
+
+            // Create a div with specified height and width
+            function createDiv(height, width) {
+                const div = document.createElement('div');
+                div.style.position = 'absolute';
+                div.style.height = `${height}px`;
+                div.style.width = `${width}px`;
+                div.style.overflow = 'hidden';
+                return div;
+            }
+
+            // Generate a random color
+            function newColour() {
+                const r = Math.floor(Math.random() * 256);
+                const g = Math.floor(Math.random() * 256);
+                const b = Math.floor(Math.random() * 256);
+                return `rgb(${r}, ${g}, ${b})`;
+            }
+
+            // Update star particle
+            function updateStar(i) {
+                if (--starv[i] === 25) {
+                    star[i].style.clip = 'rect(1px, 4px, 4px, 1px)';
+                }
+                if (starv[i]) {
+                    stary[i] += 1 + Math.random() * 3;
+                    starx[i] += (i % 5 - 2) / 5;
+                    if (stary[i] < shigh + sdown) {
+                        star[i].style.top = `${stary[i]}px`;
+                        star[i].style.left = `${starx[i]}px`;
+                    } else {
+                        star[i].style.visibility = 'hidden';
+                        starv[i] = 0;
+                    }
+                } else {
+                    tinyv[i] = 50;
+                    tiny[i].style.top = `${tinyy[i] = stary[i]}px`;
+                    tiny[i].style.left = `${tinyx[i] = starx[i]}px`;
+                    tiny[i].style.width = '2px';
+                    tiny[i].style.height = '2px';
+                    tiny[i].style.backgroundColor = star[i].childNodes[0].style.backgroundColor;
+                    star[i].style.visibility = 'hidden';
+                    tiny[i].style.visibility = 'visible';
+                }
+            }
+
+            // Update tiny particle
+            function updateTiny(i) {
+                if (--tinyv[i] === 25) {
+                    tiny[i].style.width = '1px';
+                    tiny[i].style.height = '1px';
+                }
+                if (tinyv[i]) {
+                    tinyy[i] += 1 + Math.random() * 3;
+                    tinyx[i] += (i % 5 - 2) / 5;
+                    if (tinyy[i] < shigh + sdown) {
+                        tiny[i].style.top = `${tinyy[i]}px`;
+                        tiny[i].style.left = `${tinyx[i]}px`;
+                    } else {
+                        tiny[i].style.visibility = 'hidden';
+                        tinyv[i] = 0;
+                    }
+                } else {
+                    tiny[i].style.visibility = 'hidden';
+                }
+            }
+
+            // Main sparkle function
+            function sparkle() {
+                if (Math.abs(x - ox) > 1 || Math.abs(y - oy) > 1) {
+                    ox = x;
+                    oy = y;
+                    for (let c = 0; c < sparkles; c++) {
+                        if (!starv[c]) {
+                            star[c].style.left = `${starx[c] = x}px`;
+                            star[c].style.top = `${stary[c] = y + 1}px`;
+                            star[c].style.clip = 'rect(0px, 5px, 5px, 0px)';
+                            const color = newColour();
+                            star[c].childNodes[0].style.backgroundColor = color;
+                            star[c].childNodes[1].style.backgroundColor = color;
+                            star[c].style.visibility = 'visible';
+                            starv[c] = 50;
+                            break;
+                        }
+                    }
+                }
+                for (let c = 0; c < sparkles; c++) {
+                    if (starv[c]) updateStar(c);
+                    if (tinyv[c]) updateTiny(c);
+                }
+                requestAnimationFrame(sparkle);
+            }
+
+            // Handle mouse move
+            function handleMouseMove(e) {
+                x = e.pageX;
+                y = e.pageY;
+            }
+
+            // Set the dimensions of the viewport
+            function setWidth() {
+                swide = Math.min(
+                    document.documentElement.clientWidth || window.innerWidth || 800,
+                    window.innerWidth || 800
+                );
+                shigh = Math.min(
+                    document.documentElement.clientHeight || window.innerHeight || 600,
+                    window.innerHeight || 600
+                );
+            }
+
+            // Set scroll positions
+            function setScroll() {
+                sdown = window.pageYOffset || document.body.scrollTop || 0;
+                sleft = window.pageXOffset || document.body.scrollLeft || 0;
+            }
+
+            // Initialize
+            function init() {
+                for (let i = 0; i < sparkles; i++) {
+                    let div = createDiv(3, 3);
+                    div.style.visibility = 'hidden';
+                    div.style.zIndex = '999';
+                    document.body.appendChild(tiny[i] = div);
+                    starv[i] = 0;
+                    tinyv[i] = 0;
+
+                    div = createDiv(5, 5);
+                    div.style.backgroundColor = 'transparent';
+                    div.style.visibility = 'hidden';
+                    div.style.zIndex = '999';
+
+                    const leftDiv = createDiv(1, 5);
+                    const downDiv = createDiv(5, 1);
+                    div.appendChild(leftDiv);
+                    div.appendChild(downDiv);
+                    leftDiv.style.top = '2px';
+                    leftDiv.style.left = '0px';
+                    downDiv.style.top = '0px';
+                    downDiv.style.left = '2px';
+
+                    document.body.appendChild(star[i] = div);
+                }
+                setWidth();
+                sparkle();
+            }
+
+            window.addEventListener('resize', setWidth);
+            window.addEventListener('scroll', setScroll);
+            document.addEventListener('mousemove', handleMouseMove);
+            window.addEventListener('load', init);
+        });
+    </script>
+</body>
+</html>
         isFirstGif = !isFirstGif; // Toggle the state
     }
 
