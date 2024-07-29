@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        h1 {
+            font-family: 'Verdana', sans-serif;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .login-container {
+            background-color: #222;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+        input[type="password"] {
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+            background-color: #333;
+            color: #fff;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #1CB5E0;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #0a9edc;
+        }
+        .error-message {
+            display: none;
+            margin-top: 20px;
+            color: #f44336;
+        }
+        .error-message img {
+            width: 100px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello, Welcome back</h1>
+    <div class="login-container">
+        <form id="loginForm">
+            <input type="password" id="password" placeholder="Enter Password" required>
+            <input type="submit" value="Login">
+        </form>
+        <div id="errorMessage" class="error-message">
+            <img src="images/oopsies-image.png" alt="Oopsies!">
+            <p>Oopsies!</p>
+            <p id="incorrectCounter">Incorrect attempts: 0</p>
+        </div>
+    </div>
+
+    <script>
+        const correctPassword = 'yourPassword'; // Replace with your actual password
+        const passwordInput = document.getElementById('password');
+        const errorMessage = document.getElementById('errorMessage');
+        const incorrectCounter = document.getElementById('incorrectCounter');
+        const form = document.getElementById('loginForm');
+        let attempts = 0;
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const enteredPassword = passwordInput.value;
+
+            if (enteredPassword === correctPassword) {
+                window.location.href = 'success.html'; // Replace with your target page
+            } else {
+                attempts++;
+                incorrectCounter.textContent = `Incorrect attempts: ${attempts}`;
+                errorMessage.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
