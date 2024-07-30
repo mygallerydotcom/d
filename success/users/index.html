@@ -33,7 +33,6 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            flex-direction: column; /* Align items vertically */
         }
 
         .user img {
@@ -41,6 +40,12 @@
             width: 50px;
             height: 50px;
             object-fit: cover;
+        }
+
+        .user-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
 
         .user a {
@@ -56,7 +61,6 @@
         .user-description {
             font-size: 0.9em;
             color: #ccc;
-            margin-top: 5px;
         }
 
         /* General body styling */
@@ -77,18 +81,24 @@
         <h2>Users</h2>
         <div class="user">
             <img src="../../images/avatar-joshua.jpg" alt="Joshua's Avatar">
-            <a href="https://mygallerydotcom.github.io/d/user/joshua">Joshua</a>
-            <div class="user-description">Head Developer</div>
+            <div class="user-info">
+                <a href="https://mygallerydotcom.github.io/d/user/joshua">Joshua</a>
+                <div class="user-description">Short description for Joshua</div>
+            </div>
         </div>
         <div class="user">
-            <img src="../../images/avatar-axel.jpg" alt="Axel's Avatar">
-            <a href="https://mygallerydotcom.github.io/d/user/axel">axel</a>
-            <div class="user-description">Head Developer</div>
+            <img src="../../images/avatar-axel.jpg" alt="axel's Avatar">
+            <div class="user-info">
+                <a href="https://mygallerydotcom.github.io/d/user/axel">axel</a>
+                <div class="user-description">Short description for axel</div>
+            </div>
         </div>
         <div class="user">
-            <img src="../../images/avatar-frawd.jpg" alt="Frawd's Avatar">
-            <a href="https://mygallerydotcom.github.io/d/user/frawd">frawd</a>
-            <div class="user-description">Developer</div>
+            <img src="../../images/avatar-frawd.jpg" alt="frawd's Avatar">
+            <div class="user-info">
+                <a href="https://mygallerydotcom.github.io/d/user/frawd">frawd</a>
+                <div class="user-description">Short description for frawd</div>
+            </div>
         </div>
     </div>
 
