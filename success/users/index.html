@@ -33,6 +33,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            flex-direction: column; /* Align items vertically */
         }
 
         .user img {
@@ -50,6 +51,12 @@
 
         .user a:hover {
             text-decoration: underline;
+        }
+
+        .user-description {
+            font-size: 0.9em;
+            color: #ccc;
+            margin-top: 5px;
         }
 
         /* General body styling */
@@ -71,14 +78,17 @@
         <div class="user">
             <img src="../../images/avatar-joshua.jpg" alt="Joshua's Avatar">
             <a href="https://mygallerydotcom.github.io/d/user/joshua">Joshua</a>
+            <div class="user-description">Head Developer</div>
         </div>
         <div class="user">
-            <img src="../../images/avatar-axel.jpg" alt="axel's Avatar">
-            <a href="https://mygallerydotcom.github.io/d/user/axel">Axel</a>
+            <img src="../../images/avatar-axel.jpg" alt="Axel's Avatar">
+            <a href="https://mygallerydotcom.github.io/d/user/axel">axel</a>
+            <div class="user-description">Head Developer</div>
         </div>
         <div class="user">
-            <img src="../../images/avatar-frawd" alt="frawd's Avatar">
+            <img src="../../images/avatar-frawd.jpg" alt="Frawd's Avatar">
             <a href="https://mygallerydotcom.github.io/d/user/frawd">frawd</a>
+            <div class="user-description">Developer</div>
         </div>
     </div>
 
