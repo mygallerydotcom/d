@@ -13,10 +13,30 @@ body {
     background-color: #1a1a1a; /* Dark background */
     display: flex;
     justify-content: center;
+    alignHere is the updated CSS with the mascot styling included:
+
+```css
+/* Define the fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a; /* Dark background */
+    display: flex;
+    justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    overflow: hidden;
 }
+
 #loginContainer {
     background: #333; /* Darker background for the container */
     padding: 20px;
@@ -45,6 +65,7 @@ body {
     background-color: #444; /* Slightly lighter background */
     color: #fff; /* White text color */
 }
+
 #loginForm input[type="submit"] {
     padding: 10px;
     border: none;
@@ -54,9 +75,11 @@ body {
     font-size: 16px;
     cursor: pointer;
 }
+
 #loginForm input[type="submit"]:hover {
     background-color: #0056b3; /* Darker blue on hover */
 }
+
 #errorMessage {
     display: none;
     margin-top: 20px;
@@ -76,6 +99,20 @@ body {
 
 #incorrectCounter {
     font-size: 14px;
-    color: #aaa; /* Light gray text color */
-    color: #ff4d4d; /* Light gray text color */
+    color: #ff4d4d; /* Red text color */
+}
+
+.mascot {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 100px;
+    height: auto;
+    z-index: 1000;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.mascot:hover {
+    transform: scale(1.1);
 }
