@@ -6,44 +6,9 @@
     <link rel="stylesheet" href="styles.css">
     <title>Login</title>
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #000;
-            color: #fff;
-        }
-        #loginContainer {
-            text-align: center;
-            background-color: #222;
-            padding: 2em;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        /* Inline styles to set initial opacity to 0 */
+        #loginContainer, #loginForm, #errorMessage, #errorGif {
             opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-        #loginForm input {
-            display: block;
-            margin: 1em auto;
-            padding: 0.5em;
-            border: none;
-            border-radius: 5px;
-            background-color: #333;
-            color: #fff;
-        }
-        #errorMessage {
-            display: none;
-            background-color: #f00;
-            color: #fff;
-            padding: 1em;
-            border-radius: 5px;
-            margin-top: 1em;
-        }
-        #errorGif {
-            width: 50px;
-            height: auto;
         }
         .mascot {
             position: fixed;
@@ -55,6 +20,7 @@
             cursor: pointer;
             transition: transform 0.3s ease;
         }
+
         .mascot:hover {
             transform: scale(1.1);
         }
@@ -64,8 +30,8 @@
     <div id="loginContainer">
         <h1>Hello, Welcome back</h1>
         <form id="loginForm">
-            <input type="text" id="username" placeholder="Enter your username" required>
-            <input type="password" id="password" placeholder="Enter your password" required>
+            <input type="text" id="username" placeholder="Enter your username">
+            <input type="password" id="password" placeholder="Enter your password">
             <input type="submit" value="Login">
         </form>
         <div id="errorMessage" class="error-message">
@@ -75,7 +41,7 @@
         </div>
     </div>
 
-    <img src="https://i.imgur.com/H7GtZ9j.png" alt="Saber" class="mascot" title="Saber">
+    <img src="https://i.imgur.com/H7GtZ9j.png" alt="Saber" class="mascot" title="Saber" style="display: block;">
 
     <script>
         const correctCredentials = [
@@ -104,8 +70,8 @@
             );
 
             if (isValid) {
-                sessionStorage.setItem('loggedIn', 'true');
-                window.location.href = 'success/'; // Redirect to /success on valid credentials
+                sessionStorage.setItem('authenticated', 'true'); // Set authentication status
+                window.location.href = '/'; // Redirect to the root URL on successful login
             } else {
                 attempts++;
                 incorrectCounter.textContent = `Incorrect attempts: ${attempts}`;
@@ -119,11 +85,20 @@
                 }
                 isFirstGif = !isFirstGif; // Toggle the state
             }
+
+            // Trigger fade-in effect by adding a class or inline style
+            document.getElementById('loginContainer').style.opacity = 1;
+            document.getElementById('loginForm').style.opacity = 1;
+            document.getElementById('errorMessage').style.opacity = 1;
+            document.getElementById('errorGif').style.opacity = 1;
         });
 
         // Trigger fade-in effect on page load
         window.addEventListener('load', () => {
             document.getElementById('loginContainer').style.opacity = 1;
+            document.getElementById('loginForm').style.opacity = 1;
+            document.getElementById('errorMessage').style.opacity = 1;
+            document.getElementById('errorGif').style.opacity = 1;
         });
 
         const mascots = [
