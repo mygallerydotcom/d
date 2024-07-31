@@ -1,6 +1,6 @@
 (function() {
-    const loginPage = '/index.html'; // Adjust if needed
-    const protectedPaths = ['/d/success']; // Add more paths if needed
+    const loginPage = '/d/'; // Adjust if needed
+    const protectedPaths =' /d/success' ; // Add more paths if needed
 
     function checkAuthentication() {
         if (protectedPaths.includes(window.location.pathname) && sessionStorage.getItem('loggedIn') !== 'true') {
