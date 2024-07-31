@@ -4,6 +4,7 @@ body {
     color: #fff;
     margin: 0;
     padding: 0;
+    box-sizing: border-box; /* Ensures padding/borders are included in total width/height */
 }
 
 header {
@@ -38,24 +39,37 @@ main {
 
 .post {
     margin-bottom: 2em;
-    padding: 1em;
+    padding: 1.5em; /* Adjusted padding inside the post container */
     background-color: #222;
     border-radius: 10px;
+    overflow: hidden; /* Ensures content does not overflow the container */
+    max-width: 100%; /* Prevents the container from exceeding the viewport width */
+    box-sizing: border-box; /* Ensures padding and border are included in the element’s width */
 }
 
 .post-title {
-    font-size: 1.5em;
+    font-size: 1.8em; /* Adjusted title size */
     margin-bottom: 0.5em;
 }
 
 .post-date {
-    font-size: 0.9em;
+    font-size: 1em; /* Adjusted date size */
     color: #aaa;
     margin-bottom: 1em;
 }
 
 .post-content {
     margin-bottom: 1em;
+    line-height: 1.6; /* Improved readability */
+}
+
+pre {
+    white-space: pre-wrap; /* Allows wrapping of long text */
+    word-wrap: break-word; /* Breaks long words or URLs */
+    overflow: auto; /* Adds scrollbars if content overflows */
+    padding: 1em; /* Padding for better spacing */
+    background-color: #333; /* Background color for <pre> tag */
+    border-radius: 5px; /* Rounded corners for <pre> tag */
 }
 
 .read-more {
