@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <script>
+    // Check authentication status on page load
+    window.addEventListener('load', function() {
+        if (sessionStorage.getItem('authenticated') !== 'true') {
+            window.location.href = 'login.html'; // Redirect to login page if not authenticated
+        }
+    });
+</script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Homepage</title>
