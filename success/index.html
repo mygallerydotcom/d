@@ -1,19 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Your Page Title</title>
-    <script>
-        // Check authentication status on page load
-        window.addEventListener('load', function() {
-            if (sessionStorage.getItem('authenticated') !== 'true') {
-                window.location.href = '/'; // Redirect to the root URL if not authenticated
-            }
-        });
-    </script>
-</head>
+<script>
+    if (sessionStorage.getItem('loggedIn') !== 'true') {
+        window.location.href = '/index'; // Redirect to the login page
+    }
+</script>
+
 <body>
     
     <meta charset="UTF-8">
