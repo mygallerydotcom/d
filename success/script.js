@@ -2,7 +2,7 @@
     // Check authentication status on page load
     window.addEventListener('load', function() {
         if (sessionStorage.getItem('authenticated') !== 'true') {
-            window.location.href = 'login.html'; // Redirect to login page if not authenticated
+            window.location.href = '/'; // Redirect to login page if not authenticated
         }
     });
 </script>
