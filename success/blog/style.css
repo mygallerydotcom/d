@@ -63,6 +63,7 @@ main {
     line-height: 1.6; /* Improved readability */
 }
 
+/* New book-format styling for <pre> tag */
 pre {
     white-space: pre-wrap; /* Allows wrapping of long text */
     word-wrap: break-word; /* Breaks long words or URLs */
@@ -70,6 +71,11 @@ pre {
     padding: 1em; /* Padding for better spacing */
     background-color: #333; /* Background color for <pre> tag */
     border-radius: 5px; /* Rounded corners for <pre> tag */
+    max-width: 800px; /* Set a max-width for better readability */
+    margin: 0 auto; /* Center the text block */
+    font-family: 'Georgia', serif; /* Choose a book-like font */
+    line-height: 1.6; /* Improve readability with more line spacing */
+    box-sizing: border-box; /* Include padding in the width calculation */
 }
 
 .read-more {
