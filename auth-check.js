@@ -1,5 +1,5 @@
 (function() {
-    const loginPage = '/d/'; // Adjust if needed
+    const loginPage = '/d/success'; // Adjust if needed
     const protectedPaths = ['/d/success']; // Paths that require login
 
     function checkAuthentication() {
