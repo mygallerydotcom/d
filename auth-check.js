@@ -1,6 +1,6 @@
 (function() {
     const loginPage = '/d/'; // Adjust if needed
-    const protectedPaths = ['/d/success']; // Paths that require login
+    const protectedPaths = ['/d/success/']; // Ensure this path matches exactly
 
     function checkAuthentication() {
         if (protectedPaths.includes(window.location.pathname) && sessionStorage.getItem('loggedIn') !== 'true') {
@@ -10,7 +10,7 @@
 
     function handleLogin() {
         sessionStorage.setItem('loggedIn', 'true');
-        window.location.href = '/d/success'; // Redirect to a protected page after login
+        window.location.href = '/d/success/'; // Ensure this matches your success page URL
     }
 
     function handleLogout() {
