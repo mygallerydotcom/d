@@ -156,7 +156,7 @@
   }
   
   #toolbar .toolbar-icon.outlook {
-    background-image: url(Members/k5.png);
+    background-image: url(members/k5.png);
     background-repeat: no-repeat;
     background-size: 20px 20px;
     z-index: 100 !important;
@@ -164,21 +164,21 @@
   }
   
   #toolbar .toolbar-icon.correction {
-    background-image: url(Members/frawwd.png);
+    background-image: url(members/frawwd.png);
     background-repeat: no-repeat;
     background-size: 20px 20px;
     z-index: 100 !important;
   }
   
   #toolbar .toolbar-icon.wanted {
-    background-image: url(Members/Six.png);
+    background-image: url(members/six.png);
     background-repeat: no-repeat;
     background-size: 20px 20px;
     z-index: 100 !important;
   }
   
   #toolbar .toolbar-icon.owned {
-    background-image: url(Members/Zix.png);
+    background-image: url(members/zix.png);
     background-repeat: no-repeat;
     background-size: 20px 20px;
     z-index: 100 !important;
