@@ -28,17 +28,6 @@ function showPopup(popupId) {
       });
   }
   
-  document.addEventListener("DOMContentLoaded", function () {
-    addPopupListeners("PopUpNov", "NovClose", "NovOK");
-    addPopupListeners("PopUpReiko", "ReikoClose", "ReikoOK");
-    addPopupListeners("PopUpConvict", "ConvictClose", "ConvictOK");
-    addPopupListeners("PopUpIntel", "IntelClose", "IntelOK");
-    addPopupListeners("PopUpDemeter", "DemeterClose", "DemeterOK");
-    addPopupListeners("PopUpVayne", "VayneClose", "VayneOK");
-    addPopupListeners("PopUpRandy", "RandyClose", "RandyOK");
-    addPopupListeners("PopUpCrown", "CrownClose", "CrownOK");
-  });
-  
   let date = new Date();
   
   setInterval(function(){
