@@ -243,49 +243,6 @@
     background-repeat: no-repeat;
     background-size: 48px 48px;
   }
-  
-  .desktop-icons .desktop-icon.reiko {
-    background-image: url(Members/reiko.png);
-    background-repeat: no-repeat;
-    background-size: 48px 48px;
-  }
-  
-  .desktop-icons .desktop-icon.convict {
-    background-image: url(Members/convict.png);
-    background-repeat: no-repeat;
-    background-size: 48px 48px;
-  }
-  
-  .desktop-icons .desktop-icon.intelbroker {
-    background-image: url(Members/intelbroker.png);
-    background-repeat: no-repeat;
-    background-size: 48px 48px;
-  }
-  
-  .desktop-icons .desktop-icon.demeter {
-    background-image: url(Members/demeter.png);
-    background-repeat: no-repeat;
-    background-size: 48px 48px;
-  }
-  
-  .desktop-icons .desktop-icon.vayne {
-    background-image: url(Members/vayne.png);
-    background-repeat: no-repeat;
-    background-size: 48px 48px;
-  }
-
-  .desktop-icons .desktop-icon.earthtoballs {
-    background-image: url(Members/randy.png);
-    background-repeat: no-repeat;
-    background-size: 48px 48px;
-  }
-
-  .desktop-icons .desktop-icon.crown {
-    background-image: url(Members/crown.png);
-    background-repeat: no-repeat;
-    background-size: 48px 48px;
-  }
-
   .custom-button {
     border: none !important;
   }
@@ -318,18 +275,6 @@
     width: 400px;
   
   }
-  
-  @media only screen and (max-width: 600px) {
-    #enter {
-        background-image: url("images/mobile-girl.png");
-        z-index: 1;
-    }
-  
-    #desktop {
-        background-image: url("images/mobile-girl.png");
-        z-index: 1;
-    }
-  
     h4 {
         position: absolute;
         text-transform: uppercase !important;
