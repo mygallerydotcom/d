@@ -1,149 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Login</title>
-    <style>
-        /* Inline styles to set initial opacity to 0 */
-        #loginContainer, #loginForm, #errorMessage, #errorGif {
-            opacity: 0;
-        }
-        .mascot {
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
-            width: 100px;
-            height: auto;
-            z-index: 1000;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Cache-control" content="public">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  
+  <link rel="preload" href="WOFF/FreeSerif-YO4a.woff" as="font" type="font/woff">
+  <link rel="preload" href="WOFF/jackeyfont.woff" as="font" type="font/woff">
+  <link rel="preload" href="crt.css" as="style">
+  <link rel="preload" href="desktop.css" as="style">
+  <link rel="stylesheet" href="desktop.css">
+  <link rel="stylesheet" href="https://unpkg.com/98.css">
+  <link href="https://fonts.cdnfonts.com/css/vcr-osd-mono" rel="stylesheet">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.0/css/all.css" />
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script src="index.js"></script>
+  <script src="audio.js"></script>
 
-        .mascot:hover {
-            transform: scale(1.1);
-        }
-    </style>
+  <title>「sev7n.cc」</title>
+  <meta name="theme-color" content="#000">
+  
+  <meta property="og:title" content="「Valhalla」" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="$VLH$" />
 </head>
+
 <body>
-    <div id="loginContainer">
-        <h1>Hello, Welcome back</h1>
-        <form id="loginForm">
-            <input type="text" id="username" placeholder="Enter your username">
-            <input type="password" id="password" placeholder="Enter your password">
-            <input type="submit" value="Login">
-        </form>
-        <div id="errorMessage" class="error-message">
-            <img id="errorGif" src="images/anime-girl1.gif" alt="Anime Girl">
-            <p>Oopsies! Incorrect username or password.</p>
-            <p id="incorrectCounter">Incorrect attempts: 0</p>
+  <script>
+    $(function () {
+      $(".draggable").draggable({
+        start: function () {
+          $(this).css({ transform: "none", top: $(this).offset().top + "px", left: $(this).offset().left + "px" });
+        }
+      });
+    });
+
+    // Simple login validation function
+    function validateLogin() {
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+      
+      // Example credentials (replace with your own logic)
+    var validCredentials = [
+    { 'user': 'Joshua', 'password': 'paris' },
+    { 'user': 'axel', 'password': 'lolcow12' }
+    { 'user': 'Zix', 'password': 'ZixTB202'}
+];
+
+        
+      };
+      
+      if (validCredentials[username] === password) {
+        alert("Login successful!");
+        // Redirect to the main page or another section
+        window.location.href = '/success'; // You can adjust this URL
+      } else {
+        alert("Invalid username or password.");
+      }
+    }
+  </script>
+  
+  <div id="enter">
+    <div class="window enter-screen">
+      <div class="title-bar">
+        <div class="title-bar-text">User Login</div>
+        <div class="title-bar-controls">
+          <button aria-label="Close"></button>
         </div>
+      </div>
+      <div class="window-wrapper">
+        <div class="window-content">
+          <form id="loginForm" onsubmit="event.preventDefault(); validateLogin();">
+            <fieldset>
+              <legend>Login</legend>
+              
+              <label for="username">Username:</label>
+              <input type="text" id="username" name="username" required><br><br>
+              
+              <label for="password">Password:</label>
+              <input type="password" id="password" name="password" required><br><br>
+              
+              <p>Select a user to login to</p>
+              <select name="wallpaper" size="1">
+                <option>TB</option>
+                <option>Joshua</option>
+                <option>frawwd</option>
+                <option>Zix</option>
+                <option>Six</option>
+              </select>
+            </fieldset>
+          </form>
+        </div>
+        
+        <div class="window-actions">
+          <button class="window-action-button main" onclick="validateLogin()">OK</button>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <img src="https://i.imgur.com/H7GtZ9j.png" alt="Saber" class="mascot" title="Saber" style="display: block;">
-
-    <script>
-        const correctCredentials = [
-            { username: 'axel', password: 'lolcow12' },
-            { username: 'Joshua', password: 'paris' },
-            { username: 'frawd', password: 'pasta' }
-        ];
-
-        const usernameInput = document.getElementById('username');
-        const passwordInput = document.getElementById('password');
-        const errorMessage = document.getElementById('errorMessage');
-        const errorGif = document.getElementById('errorGif');
-        const incorrectCounter = document.getElementById('incorrectCounter');
-        const form = document.getElementById('loginForm');
-
-        let attempts = 0;
-        let isFirstGif = true;
-
-        form.addEventListener('submit', function(event) {
-            event.preventDefault();
-            const enteredUsername = usernameInput.value;
-            const enteredPassword = passwordInput.value;
-
-            const isValid = correctCredentials.some(credential =>
-                credential.username === enteredUsername && credential.password === enteredPassword
-            );
-
-            if (isValid) {
-                window.location.href = 'success'; // Redirect to /success on valid credentials
-            } else {
-                attempts++;
-                incorrectCounter.textContent = `Incorrect attempts: ${attempts}`;
-                errorMessage.style.display = 'block';
-
-                // Cycle between GIFs
-                if (isFirstGif) {
-                    errorGif.src = 'images/anime-girl2.gif'; // Switch to second GIF
-                } else {
-                    errorGif.src = 'images/anime-girl1.gif'; // Switch back to first GIF
-                }
-                isFirstGif = !isFirstGif; // Toggle the state
-            }
-
-            // Trigger fade-in effect by adding a class or inline style
-            document.getElementById('loginContainer').style.opacity = 1;
-            document.getElementById('loginForm').style.opacity = 1;
-            document.getElementById('errorMessage').style.opacity = 1;
-            document.getElementById('errorGif').style.opacity = 1;
-        });
-
-        // Trigger fade-in effect on page load
-        window.addEventListener('load', () => {
-            document.getElementById('loginContainer').style.opacity = 1;
-            document.getElementById('loginForm').style.opacity = 1;
-            document.getElementById('errorMessage').style.opacity = 1;
-            document.getElementById('errorGif').style.opacity = 1;
-        });
-
-        const mascots = [
-            { name: "Akaza Akari", image: "https://i.imgur.com/efamPLp.png" },
-            { name: "Akemi Homura", image: "https://i.imgur.com/8v6aSbV.png" },
-            { name: "Akiyama Mio", image: "https://i.imgur.com/fgbEdWe.png" },
-            { name: "Ali Baba", image: "https://i.imgur.com/FWC00jB.png" },
-            { name: "Cirno", image: "https://i.imgur.com/u65u8oN.png" },
-            { name: "Fubuki Atsuya", image: "https://i.imgur.com/97DaEBD.png" },
-            { name: "Gasai Yuno", image: "https://i.imgur.com/BurJnOd.png" },
-            { name: "Hatsune Miku", image: "https://i.imgur.com/HsqOvDJ.png" },
-            { name: "Hirasawa Yui", image: "https://i.imgur.com/ZttwSus.png" },
-            { name: "Hitagi Senjougahara", image: "https://i.imgur.com/ttQDirH.png" },
-            { name: "Horo", image: "https://i.imgur.com/4F6BAMZ.png" },
-            { name: "Kaname Madoka", image: "https://i.imgur.com/TVlagl3.png" },
-            { name: "Kikuchi Makoto", image: "https://i.imgur.com/aXVz09Y.png" },
-            { name: "Kirisame Marisa", image: "https://i.imgur.com/MCvbGgt.png" },
-            { name: "Kisaragi Chihaya", image: "https://i.imgur.com/4Hdd0R8.png" },
-            { name: "Kousaka Kirino", image: "https://i.imgur.com/E0sdnuC.png" },
-            { name: "Kurisu Makise", image: "https://i.imgur.com/pMNliiX.png" },
-            { name: "Kuriyama Mirai", image: "https://i.imgur.com/TwcfQPD.png" },
-            { name: "Kuroko no Basuke", image: "https://i.imgur.com/FNgiG0D.png" },
-            { name: "Mashiro Shiina", image: "https://i.imgur.com/BxJylsO.png" },
-            { name: "Mayoi Hachikuji", image: "https://i.imgur.com/Xgzke7s.png" },
-            { name: "Miyamoto Konatsu", image: "https://i.imgur.com/GhwBI5n.png" },
-            { name: "Nagase Iori", image: "https://i.imgur.com/SRWU4e1.png" },
-            { name: "Nakano Azusa", image: "https://i.imgur.com/pfqZLHo.png" },
-            { name: "Poko Fox", image: "https://i.imgur.com/OF68sMQ.png" },
-            { name: "Remilia Scarlet", image: "https://i.imgur.com/3YSqyiI.png" },
-            { name: "Ruri Gokou", image: "https://i.imgur.com/UtjqvU6.png" },
-            { name: "Saber", image: "https://i.imgur.com/H7GtZ9j.png" },
-            { name: "Shana", image: "https://i.imgur.com/MPD95PX.png" },
-            { name: "Touwa Erio", image: "https://i.imgur.com/AFINQjc.png" },
-            { name: "Yin", image: "https://i.imgur.com/rddrYFR.png" },
-            { name: "Yoko Littner", image: "https://i.imgur.com/bEPA1rz.png" },
-            { name: "Yukinoshita Yukino", image: "https://i.imgur.com/uu6Dh0I.png" },
-            { name: "Yuuki Asuna", image: "https://i.imgur.com/283FX36.png" },
-            { name: "Yuzuki Yukari", image: "https://i.imgur.com/84HOYIc.png" }
-        ];
-
-        const randomMascot = mascots[Math.floor(Math.random() * mascots.length)];
-
-        document.querySelector(".mascot").src = randomMascot.image;
-        document.querySelector(".mascot").alt = randomMascot.name;
-        document.querySelector(".mascot").title = randomMascot.name;
-        document.querySelector(".mascot").style.display = "block";
-    </script>
+  <div id="main">
+    <div id="desktop">
+      </br></br>
+      <center>
+        <h4 style="color: #fff">sev7n.cc</h4>
+        <h4 style="color: #fff; top: 70px !important; font-size: 0.5em !important" id="mobile-notice"></h4>
+      </center>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
