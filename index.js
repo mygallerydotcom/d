@@ -28,6 +28,17 @@ function showPopup(popupId) {
       });
   }
   
+  document.addEventListener("DOMContentLoaded", function () {
+    addPopupListeners("PopUpk5", "k5Close", "k5OK");
+    addPopupListeners("PopUpReiko", "ReikoClose", "ReikoOK");
+    addPopupListeners("PopUpConvict", "ConvictClose", "ConvictOK");
+    addPopupListeners("PopUpIntel", "IntelClose", "IntelOK");
+    addPopupListeners("PopUpDemeter", "DemeterClose", "DemeterOK");
+    addPopupListeners("PopUpVayne", "VayneClose", "VayneOK");
+    addPopupListeners("PopUpRandy", "RandyClose", "RandyOK");
+    addPopupListeners("PopUpCrown", "CrownClose", "CrownOK");
+  });
+  
   let date = new Date();
   
   setInterval(function(){
@@ -78,5 +89,3 @@ function showPopup(popupId) {
       document.getElementById("mobile-notice").innerHTML = "(View on PC for a better experience)";
     }
   });
-  
-  
