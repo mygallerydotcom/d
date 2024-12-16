@@ -29,7 +29,7 @@ function showPopup(popupId) {
   }
   
   document.addEventListener("DOMContentLoaded", function () {
-    addPopupListeners("PopUpNov", "NovClose", "NovOK");
+    addPopupListeners("PopUpK5", "K5Close", "K5OK");
     addPopupListeners("PopUpReiko", "ReikoClose", "ReikoOK");
     addPopupListeners("PopUpConvict", "ConvictClose", "ConvictOK");
     addPopupListeners("PopUpIntel", "IntelClose", "IntelOK");
@@ -64,7 +64,7 @@ function showPopup(popupId) {
       button.addEventListener('click', function() {
         counter++;
         if (counter % 2 === 1) {
-          desktop.style.backgroundImage = 'url(./images/retard.png)';
+          desktop.style.backgroundImage = 'url(./images/22.png)';
         } else {
           desktop.style.backgroundImage = 'url(./images/girl.jpg)';
         }
