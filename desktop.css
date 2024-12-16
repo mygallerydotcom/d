@@ -155,55 +155,11 @@
     float: left;
   }
   
-  #toolbar .toolbar-icon.outlook {
-    background-image: url(Members/reiko.png);
-    background-repeat: no-repeat;
-    background-size: 20px 20px;
-    z-index: 100 !important;
-  
-  }
-  
   #toolbar .toolbar-icon.correction {
     background-image: url(members/k5.png);
     background-repeat: no-repeat;
     background-size: 20px 20px;
     z-index: 100 !important;
-  }
-  
-  #toolbar .toolbar-icon.wanted {
-    background-image: url(Members/intelbroker.png);
-    background-repeat: no-repeat;
-    background-size: 20px 20px;
-    z-index: 100 !important;
-  }
-  
-  #toolbar .toolbar-icon.owned {
-    background-image: url(Members/demeter.png);
-    background-repeat: no-repeat;
-    background-size: 20px 20px;
-    z-index: 100 !important;
-  }
-  
-  #toolbar .toolbar-icon.err {
-    background-image: url(Members/vayne.png);
-    background-repeat: no-repeat;
-    background-size: 20px 20px;
-    z-index: 100 !important;
-  }
-
-  #toolbar .toolbar-icon.icndrp {
-    background-image: url(Members/randy.png);
-    background-repeat: no-repeat;
-    background-size: 20px 20px;
-    z-index: 100 !important;
-  }
-  
-  #toolbar .toolbar-icon.tfa {
-    background-image: url(Members/crown.png);
-    background-repeat: no-repeat;
-    background-size: 20px 20px;
-    z-index: 100 !important;
-  }
 
   #toolbar .toolbar-right {
     float: right;
@@ -239,7 +195,7 @@
   
   
   .desktop-icons .desktop-icon.k5 {
-    background-image: url(Members/k5.png);
+    background-image: url(members/k5);
     background-repeat: no-repeat;
     background-size: 48px 48px;
   }
