@@ -247,19 +247,6 @@
     transform: translate(-50%, -50%);
     width: 400px;
   
-  }
-  
-  @media only screen and (max-width: 600px) {
-    #enter {
-        background-image: url("images/mobile-girl.png");
-        z-index: 1;
-    }
-  
-    #desktop {
-        background-image: url("images/mobile-girl.png");
-        z-index: 1;
-    }
-  
     h4 {
         position: absolute;
         text-transform: uppercase !important;
