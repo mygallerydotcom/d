@@ -155,7 +155,7 @@
     float: left;
   }
   
-  #toolbar .toolbar-icon.outlook {
+  #toolbar .toolbar-icon.k5 {
     background-image: url(members/k5.png);
     background-repeat: no-repeat;
     background-size: 20px 20px;
@@ -163,21 +163,22 @@
   
   }
   
-  #toolbar .toolbar-icon.correction {
+  #toolbar .toolbar-icon.frawwd {
     background-image: url(members/frawwd.png);
     background-repeat: no-repeat;
     background-size: 20px 20px;
     z-index: 100 !important;
   }
   
-  #toolbar .toolbar-icon.wanted {
+  #toolbar .toolbar-icon.six {
     background-image: url(members/six.png);
     background-repeat: no-repeat;
     background-size: 20px 20px;
     z-index: 100 !important;
+
   }
   
-  #toolbar .toolbar-icon.owned {
+  #toolbar .toolbar-icon.zix {
     background-image: url(members/zix.png);
     background-repeat: no-repeat;
     background-size: 20px 20px;
