@@ -155,68 +155,54 @@
     float: left;
   }
   
-  #toolbar .toolbar-icon.k5 {
-    background-image: url(members/k5.png);
+  #toolbar .toolbar-icon.outlook {
+    background-image: url(Members/reiko.png);
     background-repeat: no-repeat;
     background-size: 20px 20px;
     z-index: 100 !important;
   
   }
   
-  #toolbar .toolbar-icon.frawwd {
-    background-image: url(members/frawwd.png);
+  #toolbar .toolbar-icon.correction {
+    background-image: url(Members/k5.png);
     background-repeat: no-repeat;
     background-size: 20px 20px;
     z-index: 100 !important;
   }
   
-  #toolbar .toolbar-icon.six {
-    background-image: url(members/six.png);
+  #toolbar .toolbar-icon.wanted {
+    background-image: url(Members/intelbroker.png);
     background-repeat: no-repeat;
     background-size: 20px 20px;
     z-index: 100 !important;
+  }
+  
+  #toolbar .toolbar-icon.owned {
+    background-image: url(Members/demeter.png);
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    z-index: 100 !important;
+  }
+  
+  #toolbar .toolbar-icon.err {
+    background-image: url(Members/vayne.png);
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    z-index: 100 !important;
+  }
 
-  }
-  
-  #toolbar .toolbar-icon.zix {
-    background-image: url(members/zix.png);
+  #toolbar .toolbar-icon.icndrp {
+    background-image: url(Members/randy.png);
     background-repeat: no-repeat;
     background-size: 20px 20px;
     z-index: 100 !important;
-      
-  .custom-button {
-    border: none !important;
   }
   
-  h4 {
-    text-transform: uppercase;
-    font-size: 2px;
-    font-family: "VCR OSD Mono", sans-serif;
-  }
-  
-  .wow {
-    text-transform: uppercase;
-    font-size: 10px;
-    font-family: "VCR OSD Mono", sans-serif;
-  }
-  
-  .draggable {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-  }
-  
-  .enter-screen {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px;
-  
-  }
-  
+  #toolbar .toolbar-icon.tfa {
+    background-image: url(Members/crown.png);
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    z-index: 100 !important;
   }
 
   #toolbar .toolbar-right {
@@ -250,6 +236,55 @@
     padding-top: 55px;
     margin: 10px;
   }
+  
+  
+  .desktop-icons .desktop-icon.november {
+    background-image: url(Members/nov.png);
+    background-repeat: no-repeat;
+    background-size: 48px 48px;
+  }
+  
+  .desktop-icons .desktop-icon.reiko {
+    background-image: url(Members/reiko.png);
+    background-repeat: no-repeat;
+    background-size: 48px 48px;
+  }
+  
+  .desktop-icons .desktop-icon.convict {
+    background-image: url(Members/convict.png);
+    background-repeat: no-repeat;
+    background-size: 48px 48px;
+  }
+  
+  .desktop-icons .desktop-icon.intelbroker {
+    background-image: url(Members/intelbroker.png);
+    background-repeat: no-repeat;
+    background-size: 48px 48px;
+  }
+  
+  .desktop-icons .desktop-icon.demeter {
+    background-image: url(Members/demeter.png);
+    background-repeat: no-repeat;
+    background-size: 48px 48px;
+  }
+  
+  .desktop-icons .desktop-icon.vayne {
+    background-image: url(Members/vayne.png);
+    background-repeat: no-repeat;
+    background-size: 48px 48px;
+  }
+
+  .desktop-icons .desktop-icon.earthtoballs {
+    background-image: url(Members/randy.png);
+    background-repeat: no-repeat;
+    background-size: 48px 48px;
+  }
+
+  .desktop-icons .desktop-icon.crown {
+    background-image: url(Members/crown.png);
+    background-repeat: no-repeat;
+    background-size: 48px 48px;
+  }
 
   .custom-button {
     border: none !important;
@@ -281,6 +316,19 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 400px;
+  
+  }
+  
+  @media only screen and (max-width: 600px) {
+    #enter {
+        background-image: url("images/mobile-girl.png");
+        z-index: 1;
+    }
+  
+    #desktop {
+        background-image: url("images/mobile-girl.png");
+        z-index: 1;
+    }
   
     h4 {
         position: absolute;
