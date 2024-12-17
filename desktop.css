@@ -90,7 +90,7 @@
   }
 
   #toolbar .toolbar-email-button .email-button {
-    background: url(https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png) no-repeat 2px center / 24px;
+    background: url(https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png) no-repeat 2px right / 24px;
     padding-left: 28px;
     padding-right: 100px;
     height: 29px;
@@ -127,7 +127,7 @@
     border-left-color: #fff;
     background: #c0c0c0;
     position: fixed;
-    left: 2px;
+    right: 50px;
     bottom: 33px;
     width: 190px;
     min-height: 200px;
