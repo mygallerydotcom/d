@@ -89,17 +89,6 @@ body {
   border-left-color: #fff;
 }
 
-#toolbar .toolbar-email-button .email-button {
-  background: url(https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png) no-repeat 2px right / 24px;
-  padding-left: 28px;
-  padding-right: 100px;
-  height: 29px;
-  margin: 2px 3px;
-  font-weight: bold;
-  border: 2px solid #7c7c7c;
-  border-top-color: #fff;
-  border-left-color: #fff;
-}
 
 #toolbar .toolbar-start-menu .start-button:hover {
   background-color: #a7a7a7;
@@ -117,9 +106,6 @@ body {
   min-height: 200px;
 }
 
-#toolbar .toolbar-email-button .email-button:hover {
-  background-color: #a7a7a7;
-}
 
 #toolbar .toolbar-start-menu .start-menu-wrapper .start-menu-title {
   height: 100%;
