@@ -87,8 +87,9 @@
     border: 2px solid #7c7c7c;
     border-top-color: #fff;
     border-left-color: #fff;
+  }
 
-  #toolbar .toolbar-start-menu .email-button {
+  #toolbar .toolbar-email-button .email-button {
     background: url(https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png) no-repeat 2px center / 24px;
     padding-left: 28px;
     padding-right: 5px;
@@ -383,5 +384,4 @@
     width: 25px;
     height: 25px;
     line-height: 22px !important;
-    display: inline-block;
-  }
+    display: inline-block;}
