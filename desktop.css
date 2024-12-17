@@ -117,7 +117,7 @@
     min-height: 200px;
   }
  
-  #toolbar ..toolbar-email-button .email-button:hover {
+  #toolbar .toolbar-email-button .email-button:hover {
     background-color: #a7a7a7;
   }
   
