@@ -127,7 +127,7 @@
     border-left-color: #fff;
     background: #c0c0c0;
     position: fixed;
-    right: 50px;
+    left: 2px;
     bottom: 33px;
     width: 190px;
     min-height: 200px;
@@ -180,7 +180,7 @@
     border: none;
     margin-top: 3px;
     margin: 3px 2px;
-    float: left;
+    float: right;
   }
   
   #toolbar .toolbar-icon.outlook {
