@@ -90,9 +90,9 @@
   }
 
   #toolbar .toolbar-email-button .email-button {
-    background: url(https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png) no-repeat 5px center / 24px;
+    background: url(https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png) no-repeat 2px center / 24px;
     padding-left: 28px;
-    padding-right: 30px;
+    padding-right: 100px;
     height: 29px;
     margin: 2px 3px;
     font-weight: bold;
