@@ -164,21 +164,21 @@
   }
 
   #toolbar .toolbar-icon.correction {
-    background-image: url(Members/convict.png);
+    background-image: url(Members/frawwd.png);
     background-repeat: no-repeat;
     background-size: 20px 20px;
     z-index: 100 !important;
   }
 
   #toolbar .toolbar-icon.wanted {
-    background-image: url(Members/intelbroker.png);
+    background-image: url(Members/six.png);
     background-repeat: no-repeat;
     background-size: 20px 20px;
     z-index: 100 !important;
   }
 
   #toolbar .toolbar-icon.owned {
-    background-image: url(Members/demeter.png);
+    background-image: url(Members/Zix.png);
     background-repeat: no-repeat;
     background-size: 20px 20px;
     z-index: 100 !important;
@@ -251,19 +251,19 @@
   }
 
   .desktop-icons .desktop-icon.convict {
-    background-image: url(Members/convict.png);
+    background-image: url(Members/frawwd.png);
     background-repeat: no-repeat;
     background-size: 48px 48px;
   }
 
   .desktop-icons .desktop-icon.intelbroker {
-    background-image: url(Members/intelbroker.png);
+    background-image: url(Members/six.png);
     background-repeat: no-repeat;
     background-size: 48px 48px;
   }
 
   .desktop-icons .desktop-icon.demeter {
-    background-image: url(Members/demeter.png);
+    background-image: url(Members/Zix.png);
     background-repeat: no-repeat;
     background-size: 48px 48px;
   }
