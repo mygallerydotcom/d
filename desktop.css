@@ -350,3 +350,12 @@
     body {
       margin: 0;
       overflow-x: hidden;
+
+#volume {
+  position: fixed;
+  bottom: 10px;  /* Adjust the space from the bottom */
+  right: 10px;   /* Adjust the space from the right */
+  width: 200px;
+  display: none;  /* Hidden by default */
+}
+
