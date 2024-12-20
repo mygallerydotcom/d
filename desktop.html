@@ -108,84 +108,106 @@ Start
 
 <div class="toolbar-left">
 
+<!-- Button to trigger the first popup (K5) -->
 <button class="toolbar-icon correction" onclick="showPopup('PopUpK5')"></button>
-<div class="window draggable" id="PopUpK5"
-style="margin: 32px; width: 250px; display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-<div class="title-bar">
-<div class="title-bar-text">k5</div>
-<div class="title-bar-controls">
-<button class="K5Close" aria-label="Close"></button>
-</div>
-</div>
-<div class="window-body">
-<center>
-                 <img src="Members/k5.png" height="48px" width="48px">
-                 <p>Youngest In Charge</p>
-<section class="field-row" style="justify-content: center">
-<button class="K5OK" aria-label="OK" style="margin-top:10px;">OK</button>
-</section>
-</center>
-</div>
-</div>
-  <button class="toolbar-icon correction" onclick="showPopup('PopUpFrawwd')"></button>
-           <div class="window draggable" id="PopUpFrawwd"
-             style="margin: 32px; width: 250px; display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-             <div class="title-bar">
-               <div class="title-bar-text">frawwd</div>
-               <div class="title-bar-controls">
-                 <button class="FrawwdClose" aria-label="Close"></button>
-               </div>
-             </div>
-             <div class="window-body">
-               <center>
-                 <img src="Members/frawwd.png" height="48px" width="48px">
-                 <p>wowzers</p>
-                 <section class="field-row" style="justify-content: center">
-                   <button class="FrawwdOK" aria-label="OK" style="margin-top:10px;">OK</button>
-                 </section>
-             
-               </center>
-             </div>
-           </div
-             tton class="toolbar-icon correction" onclick="showPopup('PopUpSix')"></button>
-           <div class="window draggable" id="PopUpSix"
-             style="margin: 32px; width: 250px; display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-             <div class="title-bar">
-               <div class="title-bar-text">Six</div>
-               <div class="title-bar-controls">
-                 <button class="SixClose" aria-label="Close"></button>
-               </div>
-             </div>
-             <div class="window-body">
-               <center>
-                 <img src="Members/six.png" height="48px" width="48px">
-                 <p>SixTB</p>
-                 <section class="field-row" style="justify-content: center">
-                   <button class="SixOK" aria-label="OK" style="margin-top:10px;">OK</button>
-                 </section>
-               </center>
-             </div>
-           </div
 
-             tton class="toolbar-icon correction" onclick="showPopup('PopUpZix')"></button>
-           <div class="window draggable" id="PopUpZix"
-             style="margin: 32px; width: 250px; display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-             <div class="title-bar">
-               <div class="title-bar-text">Zix</div>
-               <div class="title-bar-controls">
-                 <button class="ZixClose" aria-label="Close"></button>
-               </div>
-             </div>
-             <div class="window-body">
-               <center>
-                 <img src="Members/Zix.png" height="48px" width="48px">
-                 <p>Zix</p>
-                 <section class="field-row" style="justify-content: center">
-                   <button class="ZixOK" aria-label="OK" style="margin-top:10px;">OK</button>
-                 </section>
-               </center>
-             </div>
-           </div
+<!-- Popup 1 (K5) -->
+<div class="window draggable" id="PopUpK5" style="margin: 32px; width: 250px; display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    <div class="title-bar">
+        <div class="title-bar-text">k5</div>
+        <div class="title-bar-controls">
+            <button class="K5Close" aria-label="Close" onclick="closePopup('PopUpK5')"></button>
+        </div>
+    </div>
+    <div class="window-body">
+        <center>
+            <img src="Members/k5.png" height="48px" width="48px">
+            <p>Youngest In Charge</p>
+            <section class="field-row" style="justify-content: center">
+                <button class="K5OK" aria-label="OK" style="margin-top: 10px;" onclick="closePopup('PopUpK5')">OK</button>
+            </section>
+        </center>
+    </div>
+</div>
+
+<!-- Button to trigger the second popup (Frawwd) -->
+<button class="toolbar-icon correction" onclick="showPopup('PopUpFrawwd')"></button>
+
+<!-- Popup 2 (Frawwd) -->
+<div class="window draggable" id="PopUpFrawwd" style="margin: 32px; width: 250px; display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    <div class="title-bar">
+        <div class="title-bar-text">frawwd</div>
+        <div class="title-bar-controls">
+            <button class="FrawwdClose" aria-label="Close" onclick="closePopup('PopUpFrawwd')"></button>
+        </div>
+    </div>
+    <div class="window-body">
+        <center>
+            <img src="Members/frawwd.png" height="48px" width="48px">
+            <p>wowzers</p>
+            <section class="field-row" style="justify-content: center">
+                <button class="FrawwdOK" aria-label="OK" style="margin-top: 10px;" onclick="closePopup('PopUpFrawwd')">OK</button>
+            </section>
+        </center>
+    </div>
+</div>
+
+<!-- Button to trigger the third popup (Six) -->
+<button class="toolbar-icon correction" onclick="showPopup('PopUpSix')"></button>
+
+<!-- Popup 3 (Six) -->
+<div class="window draggable" id="PopUpSix" style="margin: 32px; width: 250px; display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    <div class="title-bar">
+        <div class="title-bar-text">Six</div>
+        <div class="title-bar-controls">
+            <button class="SixClose" aria-label="Close" onclick="closePopup('PopUpSix')"></button>
+        </div>
+    </div>
+    <div class="window-body">
+        <center>
+            <img src="Members/six.png" height="48px" width="48px">
+            <p>SixTB</p>
+            <section class="field-row" style="justify-content: center">
+                <button class="SixOK" aria-label="OK" style="margin-top: 10px;" onclick="closePopup('PopUpSix')">OK</button>
+            </section>
+        </center>
+    </div>
+</div>
+
+<!-- Button to trigger the fourth popup (Zix) -->
+<button class="toolbar-icon correction" onclick="showPopup('PopUpZix')"></button>
+
+<!-- Popup 4 (Zix) -->
+<div class="window draggable" id="PopUpZix" style="margin: 32px; width: 250px; display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    <div class="title-bar">
+        <div class="title-bar-text">Zix</div>
+        <div class="title-bar-controls">
+            <button class="ZixClose" aria-label="Close" onclick="closePopup('PopUpZix')"></button>
+        </div>
+    </div>
+    <div class="window-body">
+        <center>
+            <img src="Members/Zix.png" height="48px" width="48px">
+            <p>Zix</p>
+            <section class="field-row" style="justify-content: center">
+                <button class="ZixOK" aria-label="OK" style="margin-top: 10px;" onclick="closePopup('PopUpZix')">OK</button>
+            </section>
+        </center>
+    </div>
+</div>
+
+<script>
+    // Function to show the popups
+    function showPopup(id) {
+        document.getElementById(id).style.display = 'block';
+    }
+
+    // Function to close the popups
+    function closePopup(id) {
+        document.getElementById(id).style.display = 'none';
+    }
+</script>
+
 
 
 
