@@ -31,9 +31,9 @@ function showPopup(popupId) {
   document.addEventListener("DOMContentLoaded", function () {
     addPopupListeners("PopUpK5", "K5Close", "K5OK");
     addPopupListeners("PopUpReiko", "ReikoClose", "ReikoOK");
-    addPopupListeners("PopUpConvict", "ConvictClose", "ConvictOK");
-    addPopupListeners("PopUpIntel", "IntelClose", "IntelOK");
-    addPopupListeners("PopUpDemeter", "DemeterClose", "DemeterOK");
+    addPopupListeners("PopUpFrawwd", "FrawwdClose", "FrawwdOK");
+    addPopupListeners("PopUpSix", "SixClose", "SixOK");
+    addPopupListeners("PopUpZix", "ZixClose", "ZixOK");
     addPopupListeners("PopUpVayne", "VayneClose", "VayneOK");
     addPopupListeners("PopUpRandy", "RandyClose", "RandyOK");
     addPopupListeners("PopUpCrown", "CrownClose", "CrownOK");
