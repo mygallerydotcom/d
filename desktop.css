@@ -55,9 +55,10 @@
   }
 
   #desktop {
-    background-image: url(images/22.png);
+    background-image: url(images/girl.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
     height: 100vh;
     width: 100vw;
     z-index: -300;
@@ -353,7 +354,87 @@
     position: fixed;
     bottom: 40px;
     right: 10px;
-    width: 200px;
+    width: 250px;
     z-index: 1000;
     display: none;
+    background: #c0c0c0;
+    border: 2px solid #7c7c7c;
+    border-top-color: #fff;
+    border-left-color: #fff;
+  }
+
+  .volume-window .window-body {
+    padding: 10px;
+  }
+
+  #songInfo {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  #range26 {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .status-bar {
+    display: flex;
+    justify-content: space-around;
+    padding: 5px;
+    border-top: 2px solid #7c7c7c;
+  }
+
+  .status-bar p {
+    cursor: pointer;
+    padding: 5px;
+  }
+
+  .status-bar p:hover {
+    background: #a7a7a7;
+  }
+
+  .member-popup {
+    background: #c0c0c0;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .member-popup img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+
+  .member-popup p {
+    margin: 10px 0;
+  }
+
+  .toolbar-bottom-icons {
+    position: fixed;
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    background: rgba(192, 192, 192, 0.8);
+    padding: 5px 15px;
+    border-radius: 5px;
+    z-index: 1000;
+  }
+
+  .toolbar-bottom-icons a {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 5px;
+    transition: transform 0.2s;
+  }
+
+  .toolbar-bottom-icons a:hover {
+    transform: scale(1.1);
   }

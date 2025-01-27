@@ -4,6 +4,53 @@ const volumeRange = document.getElementById('range26');
 const mobileNotice = document.getElementById('mobile-notice');
 const enterScreen = document.getElementById('enter');
 const mainScreen = document.getElementById('main');
+const songTitle = document.getElementById('songTitle');
+const songTime = document.getElementById('songTime');
+const backwardBtn = document.getElementById('backward');
+const pauseBtn = document.getElementById('pause');
+const forwardBtn = document.getElementById('forward');
+
+// Audio control
+const audioController = {
+  currentTrack: 0,
+  tracks: [
+    { title: 'Dream World - TBOST', src: 'songs/Dream World.wav' },
+    { title: 'Punk Angels - TBOST', src: 'songs/Punk angels .wav' }
+  ],
+  
+  playTrack(index) {
+    this.currentTrack = index;
+    audio.src = this.tracks[index].src;
+    songTitle.textContent = this.tracks[index].title;
+    audio.play();
+  },
+  
+  nextTrack() {
+    const next = (this.currentTrack + 1) % this.tracks.length;
+    this.playTrack(next);
+  },
+  
+  previousTrack() {
+    const prev = (this.currentTrack - 1 + this.tracks.length) % this.tracks.length;
+    this.playTrack(prev);
+  },
+  
+  togglePlay() {
+    if (audio.paused) {
+      audio.play();
+      pauseBtn.className = 'status-bar-field fa-solid fa-pause';
+    } else {
+      audio.pause();
+      pauseBtn.className = 'status-bar-field fa-solid fa-play';
+    }
+  },
+  
+  updateTime() {
+    const minutes = Math.floor(audio.currentTime / 60);
+    const seconds = Math.floor(audio.currentTime % 60);
+    songTime.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  }
+};
 
 // Popup handling
 const popupHandlers = {
@@ -25,13 +72,9 @@ const popupHandlers = {
 const initPopupListeners = () => {
   const popups = [
     ['PopUpK5', 'K5Close', 'K5OK'],
-    ['PopUpReiko', 'ReikoClose', 'ReikoOK'],
     ['PopUpFrawwd', 'FrawwdClose', 'FrawwdOK'],
     ['PopUpSix', 'SixClose', 'SixOK'],
-    ['PopUpZix', 'ZixClose', 'ZixOK'],
-    ['PopUpVayne', 'VayneClose', 'VayneOK'],
-    ['PopUpRandy', 'RandyClose', 'RandyOK'],
-    ['PopUpCrown', 'CrownClose', 'CrownOK']
+    ['PopUpZix', 'ZixClose', 'ZixOK']
   ];
 
   popups.forEach(([popupId, closeClass, okClass]) => {
@@ -85,12 +128,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (audio) audio.volume = e.target.value / 50;
   });
   
+  // Audio controls
+  backwardBtn?.addEventListener('click', () => audioController.previousTrack());
+  pauseBtn?.addEventListener('click', () => audioController.togglePlay());
+  forwardBtn?.addEventListener('click', () => audioController.nextTrack());
+  
+  audio?.addEventListener('timeupdate', () => audioController.updateTime());
+  
   // Enter screen handling
   $('.window-action-button.main')?.click(() => {
     if (enterScreen && mainScreen && audio) {
       enterScreen.style.display = 'none';
       mainScreen.style.display = 'block';
-      audio.play();
+      audioController.playTrack(0);
     }
   });
   
@@ -98,6 +148,14 @@ document.addEventListener('DOMContentLoaded', () => {
   if (mobileNotice && /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
     mobileNotice.textContent = "(View on PC for a better experience)";
   }
+  
+  // Initialize draggable windows
+  $(".draggable").draggable({
+    handle: ".title-bar",
+    start: function() {
+      $(this).css('transform', 'none');
+    }
+  });
 });
 
 // Export functions used by HTML

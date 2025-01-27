@@ -112,21 +112,17 @@ Start
 <button class="toolbar-icon outlook" onclick="showPopup('PopUpK5')"></button>
 
 <!-- Popup 1 (K5) -->
-<div class="window draggable" id="PopUpK5" style="margin: 32px; width: 250px; display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+<div class="window draggable" id="PopUpK5" style="margin: 32px; width: 250px; display: none;">
     <div class="title-bar">
         <div class="title-bar-text">k5</div>
         <div class="title-bar-controls">
-            <button class="K5Close" aria-label="Close" onclick="closePopup('PopUpK5')"></button>
+            <button class="K5Close" aria-label="Close"></button>
         </div>
     </div>
-    <div class="window-body">
-        <center>
-            <img src="Members/k5.png" height="48px" width="48px">
-            <p>Youngest In Charge</p>
-            <section class="field-row" style="justify-content: center">
-                <button class="K5OK" aria-label="OK" style="margin-top: 10px;" onclick="closePopup('PopUpK5')">OK</button>
-            </section>
-        </center>
+    <div class="window-body member-popup">
+        <img src="Members/k5.png" alt="k5">
+        <p>Youngest In Charge</p>
+        <button class="K5OK">OK</button>
     </div>
 </div>
 
@@ -134,21 +130,17 @@ Start
 <button class="toolbar-icon correction" onclick="showPopup('PopUpFrawwd')"></button>
 
 <!-- Popup 2 (Frawwd) -->
-<div class="window draggable" id="PopUpFrawwd" style="margin: 32px; width: 250px; display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+<div class="window draggable" id="PopUpFrawwd" style="margin: 32px; width: 250px; display: none;">
     <div class="title-bar">
         <div class="title-bar-text">frawwd</div>
         <div class="title-bar-controls">
-            <button class="FrawwdClose" aria-label="Close" onclick="closePopup('PopUpFrawwd')"></button>
+            <button class="FrawwdClose" aria-label="Close"></button>
         </div>
     </div>
-    <div class="window-body">
-        <center>
-            <img src="Members/frawwd.png" height="48px" width="48px">
-            <p>wowzers</p>
-            <section class="field-row" style="justify-content: center">
-                <button class="FrawwdOK" aria-label="OK" style="margin-top: 10px;" onclick="closePopup('PopUpFrawwd')">OK</button>
-            </section>
-        </center>
+    <div class="window-body member-popup">
+        <img src="Members/frawwd.png" alt="frawwd">
+        <p>wowzers</p>
+        <button class="FrawwdOK">OK</button>
     </div>
 </div>
 
@@ -156,21 +148,17 @@ Start
 <button class="toolbar-icon wanted" onclick="showPopup('PopUpSix')"></button>
 
 <!-- Popup 3 (Six) -->
-<div class="window draggable" id="PopUpSix" style="margin: 32px; width: 250px; display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+<div class="window draggable" id="PopUpSix" style="margin: 32px; width: 250px; display: none;">
     <div class="title-bar">
         <div class="title-bar-text">Six</div>
         <div class="title-bar-controls">
-            <button class="SixClose" aria-label="Close" onclick="closePopup('PopUpSix')"></button>
+            <button class="SixClose" aria-label="Close"></button>
         </div>
     </div>
-    <div class="window-body">
-        <center>
-            <img src="Members/six.png" height="48px" width="48px">
-            <p>SixTB</p>
-            <section class="field-row" style="justify-content: center">
-                <button class="SixOK" aria-label="OK" style="margin-top: 10px;" onclick="closePopup('PopUpSix')">OK</button>
-            </section>
-        </center>
+    <div class="window-body member-popup">
+        <img src="Members/six.png" alt="six">
+        <p>SixTB</p>
+        <button class="SixOK">OK</button>
     </div>
 </div>
 
@@ -178,21 +166,17 @@ Start
 <button class="toolbar-icon owned" onclick="showPopup('PopUpZix')"></button>
 
 <!-- Popup 4 (Zix) -->
-<div class="window draggable" id="PopUpZix" style="margin: 32px; width: 250px; display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+<div class="window draggable" id="PopUpZix" style="margin: 32px; width: 250px; display: none;">
     <div class="title-bar">
         <div class="title-bar-text">Zix</div>
         <div class="title-bar-controls">
-            <button class="ZixClose" aria-label="Close" onclick="closePopup('PopUpZix')"></button>
+            <button class="ZixClose" aria-label="Close"></button>
         </div>
     </div>
-    <div class="window-body">
-        <center>
-            <img src="Members/Zix.png" height="48px" width="48px">
-            <p>Zix</p>
-            <section class="field-row" style="justify-content: center">
-                <button class="ZixOK" aria-label="OK" style="margin-top: 10px;" onclick="closePopup('PopUpZix')">OK</button>
-            </section>
-        </center>
+    <div class="window-body member-popup">
+        <img src="Members/Zix.png" alt="Zix">
+        <p>Zix</p>
+        <button class="ZixOK">OK</button>
     </div>
 </div>
 
@@ -208,8 +192,8 @@ Start
     }
 </div>
 <audio id="audio" preload="none" tabindex="0">
-<source src="songs/Dream World.wav" data-track-number="1" />
-<source src="songs/Punk angels .wav" data-track-number="2" /> 
+<source src="songs/Dream World.wav" data-track-number="1">
+<source src="songs/Punk angels .wav" data-track-number="2">
 </audio>
 
 <ul id="trackList" style="display: none;">
@@ -218,12 +202,15 @@ Start
 </ul>
 <div class="volume-window draggable" id="volume">
     <div class="title-bar">
-        <div class="title-bar-text">Volume</div>
+        <div class="title-bar-text">Volume Control</div>
+        <div class="title-bar-controls">
+            <button aria-label="Close" onclick="togglePopup('volume')"></button>
+        </div>
     </div>
     <div class="window-body">
         <p>Currently playing:</p>
         <ul id="songInfo">
-            <li id="songTitle">Lil Double 0 - Life</li>
+            <li id="songTitle">Dream World - TBOST</li>
             <li id="songTime">0:00</li>
             <li><input id="range26" type="range" min="0" max="50" value="50"></li>
         </ul>
@@ -237,9 +224,28 @@ Start
 
 <div class="toolbar-separator"></div>
 <div class="toolbar-right field-row" style="width: 106px;">
-<img src="images/sound.png" alt="Tab" onclick="togglePopup('volume')" height="24" width="24" />
+<img src="images/sound.png" alt="Tab" onclick="togglePopup('volume')" height="24" width="24">
 
 <div class="time"><span class="hour"></span>:<span class="minutes"></span> AM</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Bottom toolbar icons -->
+<div class="toolbar-bottom-icons">
+    <a href="https://discord.gg/your-discord" target="_blank" title="Discord">
+        <i class="fa-brands fa-discord"></i>
+    </a>
+    <a href="https://twitter.com/your-twitter" target="_blank" title="Twitter">
+        <i class="fa-brands fa-twitter"></i>
+    </a>
+    <a href="https://instagram.com/your-instagram" target="_blank" title="Instagram">
+        <i class="fa-brands fa-instagram"></i>
+    </a>
+    <a href="https://youtube.com/your-youtube" target="_blank" title="YouTube">
+        <i class="fa-brands fa-youtube"></i>
+    </a>
 </div>
 </div>
 </div>
