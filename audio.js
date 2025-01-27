@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const forwardButton = document.getElementById("forward");
     const backwardButton = document.getElementById("backward");
     let songTime = document.getElementById("songTime");
-    let pause = document.getElementById("pause");
     
     let currentTrack = Math.floor(Math.random() * trackList.length);
   
@@ -59,17 +58,6 @@ document.addEventListener("DOMContentLoaded", function () {
       ).innerHTML;
       audio.load();
       audio.play();
-    });
-    pause.addEventListener("click", function () {
-      if (audio.paused) {
-        audio.play();
-        pause.classList.remove("fa-play");
-        pause.classList.add("fa-pause");
-      } else {
-        audio.pause();
-        pause.classList.remove("fa-pause");
-        pause.classList.add("fa-play");
-      }
     });
   
     function updateTime() {

@@ -31,6 +31,7 @@ const audioController = {
         songTitle.textContent = this.tracks[index].title;
         audio.play();
         this.updateProgress();
+        elements.controls.pause.textContent = '▌▌';
     },
     
     updateProgress() {
