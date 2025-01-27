@@ -210,16 +210,13 @@ Start
 <audio id="audio" preload="none" tabindex="0">
 <source src="songs/Dream World.wav" data-track-number="1" />
 <source src="songs/Punk angels .wav" data-track-number="2" /> 
-    </script>
-    
-</script>
 </audio>
 
 <ul id="trackList" style="display: none;">
 <li data-track-number="1">Dream World - TBOST</li>
 <li data-track-number="2">Punk Angels - TBOST</li>
 </ul>
-<div class="window volume" id="volume" style="position: fixed; width: 200px; display: false;">
+<div class="window draggable volume" id="volume" style="position: fixed; width: 200px; display: none; top: 50%; left: 50%; transform: translate(-50%, -50%);">
 <div class="title-bar">
 <div class="title-bar-text">Volume</div>
 </div>
@@ -241,7 +238,12 @@ Start
 
 <div class="toolbar-separator"></div>
 <div class="toolbar-right field-row" style="width: 106px;">
-<img src="images/sound.png" alt="Tab" onclick="togglePopup('volume')" height="24" width="">
+<img src="images/sound.png" alt="Tab" onclick="togglePopup('volume')" height="24" width="24" />
 
 <div class="time"><span class="hour"></span>:<span class="minutes"></span> AM</div>
+</div>
+</div>
+</div>
+</div>
+</body>
 </html>
