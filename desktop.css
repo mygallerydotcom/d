@@ -86,7 +86,7 @@ body, html {
     position: fixed;
     bottom: 40px;
     right: 10px;
-    width: 300px;
+    width: 250px;
     z-index: 1000;
     display: none;
     background: #c0c0c0;
@@ -96,22 +96,29 @@ body, html {
 .volume-window .title-bar {
     background: #000080;
     color: white;
-    padding: 3px;
-    font-weight: bold;
-    font-size: 11px;
+    padding: 3px 5px;
+    font-weight: normal;
+    font-size: 12px;
+    font-family: "MS Sans Serif", Arial, sans-serif;
 }
 
 .volume-window .window-body {
-    padding: 10px;
+    padding: 6px;
     background: #c0c0c0;
+    font-family: "MS Sans Serif", Arial, sans-serif;
+    font-size: 11px;
+}
+
+#songTitle, #songTime {
+    margin: 2px 0;
 }
 
 .progress-bar {
     width: 100%;
-    height: 20px;
+    height: 16px;
     background: #fff;
-    border: 2px inset #fff;
-    margin: 10px 0;
+    border: 1px solid #888;
+    margin: 4px 0;
     position: relative;
 }
 
@@ -119,27 +126,23 @@ body, html {
     height: 100%;
     background: #000080;
     width: 0;
-    transition: width 0.1s linear;
 }
 
 .player-controls {
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
+    margin-top: 6px;
 }
 
 .control-button {
-    width: 30px;
-    height: 25px;
+    min-width: 24px;
+    height: 20px;
     background: #c0c0c0;
-    border: 2px outset #fff;
+    border: 1px outset #fff;
     cursor: pointer;
     font-family: "MS Sans Serif", Arial, sans-serif;
-    font-size: 11px;
-}
-
-.control-button:active {
-    border-style: inset;
+    font-size: 10px;
+    padding: 0 2px;
 }
 
 .desktop-icons-container {
