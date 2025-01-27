@@ -107,11 +107,14 @@ Start
 <div class="toolbar-separator"></div>
 
 <div class="toolbar-left">
+    <!-- Member popups and buttons -->
+    <button class="toolbar-icon outlook" onclick="showPopup('PopUpK5')"></button>
+    <button class="toolbar-icon correction" onclick="showPopup('PopUpFrawwd')"></button>
+    <button class="toolbar-icon wanted" onclick="showPopup('PopUpSix')"></button>
+    <button class="toolbar-icon owned" onclick="showPopup('PopUpZix')"></button>
+</div>
 
-<!-- Button to trigger the first popup (K5) -->
-<button class="toolbar-icon outlook" onclick="showPopup('PopUpK5')"></button>
-
-<!-- Popup 1 (K5) -->
+<!-- Member Popups -->
 <div class="window draggable" id="PopUpK5" style="margin: 32px; width: 250px; display: none;">
     <div class="title-bar">
         <div class="title-bar-text">k5</div>
@@ -120,16 +123,12 @@ Start
         </div>
     </div>
     <div class="window-body member-popup">
-        <img src="Members/k5.png" alt="k5">
+        <img src="Members/k5.png" alt="k5" />
         <p>Youngest In Charge</p>
         <button class="K5OK">OK</button>
     </div>
 </div>
 
-<!-- Button to trigger the second popup (Frawwd) -->
-<button class="toolbar-icon correction" onclick="showPopup('PopUpFrawwd')"></button>
-
-<!-- Popup 2 (Frawwd) -->
 <div class="window draggable" id="PopUpFrawwd" style="margin: 32px; width: 250px; display: none;">
     <div class="title-bar">
         <div class="title-bar-text">frawwd</div>
@@ -138,16 +137,12 @@ Start
         </div>
     </div>
     <div class="window-body member-popup">
-        <img src="Members/frawwd.png" alt="frawwd">
+        <img src="Members/frawwd.png" alt="frawwd" />
         <p>wowzers</p>
         <button class="FrawwdOK">OK</button>
     </div>
 </div>
 
-<!-- Button to trigger the third popup (Six) -->
-<button class="toolbar-icon wanted" onclick="showPopup('PopUpSix')"></button>
-
-<!-- Popup 3 (Six) -->
 <div class="window draggable" id="PopUpSix" style="margin: 32px; width: 250px; display: none;">
     <div class="title-bar">
         <div class="title-bar-text">Six</div>
@@ -156,16 +151,12 @@ Start
         </div>
     </div>
     <div class="window-body member-popup">
-        <img src="Members/six.png" alt="six">
+        <img src="Members/six.png" alt="six" />
         <p>SixTB</p>
         <button class="SixOK">OK</button>
     </div>
 </div>
 
-<!-- Button to trigger the fourth popup (Zix) -->
-<button class="toolbar-icon owned" onclick="showPopup('PopUpZix')"></button>
-
-<!-- Popup 4 (Zix) -->
 <div class="window draggable" id="PopUpZix" style="margin: 32px; width: 250px; display: none;">
     <div class="title-bar">
         <div class="title-bar-text">Zix</div>
@@ -174,32 +165,24 @@ Start
         </div>
     </div>
     <div class="window-body member-popup">
-        <img src="Members/Zix.png" alt="Zix">
+        <img src="Members/Zix.png" alt="Zix" />
         <p>Zix</p>
         <button class="ZixOK">OK</button>
     </div>
 </div>
 
-<script>
-    // Function to show the popups
-    function showPopup(id) {
-        document.getElementById(id).style.display = 'block';
-    }
-
-    // Function to close the popups
-    function closePopup(id) {
-        document.getElementById(id).style.display = 'none';
-    }
-</div>
+<!-- Audio Player -->
 <audio id="audio" preload="none" tabindex="0">
-<source src="songs/Dream World.wav" data-track-number="1">
-<source src="songs/Punk angels .wav" data-track-number="2">
+    <source src="songs/Dream World.wav" data-track-number="1" />
+    <source src="songs/Punk angels .wav" data-track-number="2" />
 </audio>
 
 <ul id="trackList" style="display: none;">
-<li data-track-number="1">Dream World - TBOST</li>
-<li data-track-number="2">Punk Angels - TBOST</li>
+    <li data-track-number="1">Dream World - TBOST</li>
+    <li data-track-number="2">Punk Angels - TBOST</li>
 </ul>
+
+<!-- Volume Control -->
 <div class="volume-window draggable" id="volume">
     <div class="title-bar">
         <div class="title-bar-text">Volume Control</div>
@@ -212,7 +195,7 @@ Start
         <ul id="songInfo">
             <li id="songTitle">Dream World - TBOST</li>
             <li id="songTime">0:00</li>
-            <li><input id="range26" type="range" min="0" max="50" value="50"></li>
+            <li><input id="range26" type="range" min="0" max="50" value="50" /></li>
         </ul>
     </div>
     <div class="status-bar">
@@ -224,9 +207,8 @@ Start
 
 <div class="toolbar-separator"></div>
 <div class="toolbar-right field-row" style="width: 106px;">
-<img src="images/sound.png" alt="Tab" onclick="togglePopup('volume')" height="24" width="24">
-
-<div class="time"><span class="hour"></span>:<span class="minutes"></span> AM</div>
+    <img src="images/sound.png" alt="Tab" onclick="togglePopup('volume')" height="24" width="24" />
+    <div class="time"><span class="hour"></span>:<span class="minutes"></span> AM</div>
 </div>
 </div>
 </div>
