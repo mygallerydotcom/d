@@ -6,21 +6,21 @@
 
   @font-face {
     font-family: "Jackeyfont";
-    src: url("WOFF/jackeyfont.woff");
+    src: url("WOFF/jackeyfont.woff") format("woff");
+    font-display: swap;
   }
 
-  body {
+  body, html {
     margin: 0;
-    overflow-x: hidden;
+    overflow: hidden;
+    width: 100vw;
   }
-
 
   body {
     font-family: "MS Sans Serif";
     letter-spacing: 0.001em;
     font-size: 14px;
     font-smooth: none;
-    width: 100vw;
   }
 
   #main {
@@ -144,15 +144,14 @@
     min-width: 50px;
   }
 
-
   #toolbar .toolbar-icon {
-    background: no-repeat center / auto 20px;
+    background: no-repeat center / 20px;
     width: 25px;
     height: 25px;
     border: none;
-    margin-top: 3px;
     margin: 3px 2px;
     float: left;
+    z-index: 100;
   }
 
   #toolbar .toolbar-icon.outlook {
@@ -160,7 +159,6 @@
     background-repeat: no-repeat;
     background-size: 20px 20px;
     z-index: 100 !important;
-
   }
 
   #toolbar .toolbar-icon.correction {
@@ -232,11 +230,10 @@
     height: 100px;
     color: #fff;
     text-align: center;
-    background: no-repeat center top;
+    background: no-repeat center top / 48px 48px;
     padding-top: 55px;
     margin: 10px;
   }
-
 
   .desktop-icons .desktop-icon.K5 {
     background-image: url(Members/k5.png);
@@ -316,7 +313,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 400px;
-
   }
 
   @media only screen and (max-width: 600px) {
@@ -350,12 +346,14 @@
     body {
       margin: 0;
       overflow-x: hidden;
+    }
+  }
 
-#volume {
-  position: fixed;
-  bottom: 10px;  /* Space from the bottom */
-  right: 10px;   /* Space from the right */
-  width: 200px;
-  display: none; /* Hidden by default */
-  z-index: 9999;  /* Ensure it's above other elements */
-}
+  .volume-window {
+    position: fixed;
+    bottom: 40px;
+    right: 10px;
+    width: 200px;
+    z-index: 1000;
+    display: none;
+  }

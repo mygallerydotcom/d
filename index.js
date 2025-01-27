@@ -1,93 +1,107 @@
-function showPopup(popupId) {
+// Cache DOM selections
+const audio = document.getElementById('audio');
+const volumeRange = document.getElementById('range26');
+const mobileNotice = document.getElementById('mobile-notice');
+const enterScreen = document.getElementById('enter');
+const mainScreen = document.getElementById('main');
+
+// Popup handling
+const popupHandlers = {
+  showPopup: (popupId) => {
     document.getElementById(popupId).style.display = "block";
-  }
+  },
   
-  function hidePopup(popupId) {
+  hidePopup: (popupId) => {
     document.getElementById(popupId).style.display = "none";
-  }
+  },
   
-  function togglePopup(id) {
+  togglePopup: (id) => {
     const popup = document.getElementById(id);
-    if (popup.style.display === "block") {
-      popup.style.display = "none";
-    } else {
-      popup.style.display = "block";
-    }
+    popup.style.display = popup.style.display === "block" ? "none" : "block";
   }
-  
-  function addPopupListeners(popupId, closeBtnClass, okBtnClass) {
-    document
-      .querySelector(`button[class='${closeBtnClass}']`)
-      .addEventListener("click", function () {
-        hidePopup(popupId);
-      });
-    document
-      .querySelector(`button[class='${okBtnClass}']`)
-      .addEventListener("click", function () {
-        hidePopup(popupId);
-      });
-  }
-  
-  document.addEventListener("DOMContentLoaded", function () {
-    addPopupListeners("PopUpK5", "K5Close", "K5OK");
-    addPopupListeners("PopUpReiko", "ReikoClose", "ReikoOK");
-    addPopupListeners("PopUpFrawwd", "FrawwdClose", "FrawwdOK");
-    addPopupListeners("PopUpSix", "SixClose", "SixOK");
-    addPopupListeners("PopUpZix", "ZixClose", "ZixOK");
-    addPopupListeners("PopUpVayne", "VayneClose", "VayneOK");
-    addPopupListeners("PopUpRandy", "RandyClose", "RandyOK");
-    addPopupListeners("PopUpCrown", "CrownClose", "CrownOK");
-  });
-  
-  let date = new Date();
-  
-  setInterval(function(){
-      document.querySelector('.time').innerText = date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
-  }, 1000);
-  
-  document.addEventListener("DOMContentLoaded", function() {
-    let audio = document.getElementById("audio");
-    let range = document.getElementById("range26");
-    range.addEventListener("input", function() {
-      audio.volume = range.value / 50;
+};
+
+// Initialize popup listeners
+const initPopupListeners = () => {
+  const popups = [
+    ['PopUpK5', 'K5Close', 'K5OK'],
+    ['PopUpReiko', 'ReikoClose', 'ReikoOK'],
+    ['PopUpFrawwd', 'FrawwdClose', 'FrawwdOK'],
+    ['PopUpSix', 'SixClose', 'SixOK'],
+    ['PopUpZix', 'ZixClose', 'ZixOK'],
+    ['PopUpVayne', 'VayneClose', 'VayneOK'],
+    ['PopUpRandy', 'RandyClose', 'RandyOK'],
+    ['PopUpCrown', 'CrownClose', 'CrownOK']
+  ];
+
+  popups.forEach(([popupId, closeClass, okClass]) => {
+    const closeBtns = document.querySelectorAll(`.${closeClass}, .${okClass}`);
+    closeBtns.forEach(btn => {
+      btn.addEventListener('click', () => popupHandlers.hidePopup(popupId));
     });
   });
+};
+
+// Time update optimization
+const updateTime = () => {
+  const timeElement = document.querySelector('.time');
+  if (!timeElement) return;
   
-  if (window.matchMedia("(max-width: 767px)").matches) {
-    console.log("This is a mobile device, the code will not run");
-  } else {
-    document.addEventListener("DOMContentLoaded", function() {
-      let button = document.querySelector('.start-button');
-      let counter = 0;
-      let desktop = document.querySelector('#desktop');
+  const updateClock = () => {
+    const date = new Date();
+    timeElement.textContent = date.toLocaleString('en-US', { 
+      hour: 'numeric', 
+      minute: 'numeric', 
+      hour12: true 
+    });
+  };
   
-      button.addEventListener('click', function() {
-        counter++;
-        if (counter % 2 === 1) {
-          desktop.style.backgroundImage = 'url(./images/22.png)';
-        } else {
-          desktop.style.backgroundImage = 'url(./images/girl.jpg)';
-        }
-      });
+  updateClock();
+  setInterval(updateClock, 1000);
+};
+
+// Desktop background toggle (desktop only)
+const initDesktopBackground = () => {
+  if (window.matchMedia("(min-width: 768px)").matches) {
+    const button = document.querySelector('.start-button');
+    const desktop = document.querySelector('#desktop');
+    let isAlternate = false;
+
+    button?.addEventListener('click', () => {
+      isAlternate = !isAlternate;
+      desktop.style.backgroundImage = `url(./images/${isAlternate ? '22.png' : 'girl.jpg'})`;
     });
   }
+};
+
+// Initialize everything when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+  initPopupListeners();
+  updateTime();
+  initDesktopBackground();
   
-  document.addEventListener("DOMContentLoaded", function() {
-  
-    $(document).ready(function(){
-      $('.window-action-button.main').click(function(){
-          $('#enter').hide();
-          $('#main').show();
-          $('#audio')[0].play();
-      });
-    });
+  // Volume control
+  volumeRange?.addEventListener('input', (e) => {
+    if (audio) audio.volume = e.target.value / 50;
   });
   
-  document.addEventListener("DOMContentLoaded", function() {
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    if (isMobile) {
-      document.getElementById("mobile-notice").innerHTML = "(View on PC for a better experience)";
+  // Enter screen handling
+  $('.window-action-button.main')?.click(() => {
+    if (enterScreen && mainScreen && audio) {
+      enterScreen.style.display = 'none';
+      mainScreen.style.display = 'block';
+      audio.play();
     }
   });
   
+  // Mobile notice
+  if (mobileNotice && /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+    mobileNotice.textContent = "(View on PC for a better experience)";
+  }
+});
+
+// Export functions used by HTML
+window.showPopup = popupHandlers.showPopup;
+window.hidePopup = popupHandlers.hidePopup;
+window.togglePopup = popupHandlers.togglePopup;
   

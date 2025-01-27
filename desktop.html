@@ -7,8 +7,8 @@
 <meta http-equiv="Cache-control" content="public">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<link rel="preload" href="WOFF/FreeSerif-YO4a.woff" as="font" type="font/woff">
-<link rel="preload" href="WOFF/jackeyfont.woff" as="font" type="font/woff">
+<link rel="preload" href="WOFF/FreeSerif-YO4a.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="WOFF/jackeyfont.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="crt.css" as="style">
 <link rel="preload" href="desktop.css" as="style">
 <link rel="stylesheet" href="desktop.css">
@@ -18,11 +18,11 @@
 <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.0/css/all.css" />
 
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-<script src="index.js"></script>
-<script src="audio.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" defer></script>
+<script src="index.js" defer></script>
+<script src="audio.js" defer></script>
 
 <title>「sev7n.cc」</title>
 <meta name="theme-color" content="#000">
@@ -216,24 +216,23 @@ Start
 <li data-track-number="1">Dream World - TBOST</li>
 <li data-track-number="2">Punk Angels - TBOST</li>
 </ul>
-<div class="window draggable volume" id="volume" style="position: fixed; width: 200px; display: none; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-<div class="title-bar">
-<div class="title-bar-text">Volume</div>
-</div>
-<div class="window-body">
-<p> Currently playing:</p>
-<ul id="songInfo">
-<li id="songTitle">Lil Double 0 - Life</li>
-<li id="songTime">0:00</li>
-<li><input id="range26" type="range" min="0" max="50" value="50" /></li>
-</ul>
-</div>
-<div class="status-bar">
-<p id="backward" class="status-bar-field fa-solid fa-backward"></p>
-<p id="pause" class="status-bar-field fa-solid fa-pause"></p>
-<p id="forward" class="status-bar-field fa-solid fa-forward"></p>
-</div>
-
+<div class="volume-window draggable" id="volume">
+    <div class="title-bar">
+        <div class="title-bar-text">Volume</div>
+    </div>
+    <div class="window-body">
+        <p>Currently playing:</p>
+        <ul id="songInfo">
+            <li id="songTitle">Lil Double 0 - Life</li>
+            <li id="songTime">0:00</li>
+            <li><input id="range26" type="range" min="0" max="50" value="50"></li>
+        </ul>
+    </div>
+    <div class="status-bar">
+        <p id="backward" class="status-bar-field fa-solid fa-backward"></p>
+        <p id="pause" class="status-bar-field fa-solid fa-pause"></p>
+        <p id="forward" class="status-bar-field fa-solid fa-forward"></p>
+    </div>
 </div>
 
 <div class="toolbar-separator"></div>
