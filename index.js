@@ -23,6 +23,30 @@ const audioController = {
     audio.src = this.tracks[index].src;
     songTitle.textContent = this.tracks[index].title;
     audio.play();
+    this.updateProgress();
+  },
+  
+  updateProgress() {
+    if (!audio) return;
+    const minutes = Math.floor(audio.currentTime / 60);
+    const seconds = Math.floor(audio.currentTime % 60);
+    songTime.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    
+    const progressFill = document.querySelector('.progress-fill');
+    if (progressFill) {
+      const progress = (audio.currentTime / audio.duration) * 100;
+      progressFill.style.width = `${progress}%`;
+    }
+  },
+  
+  togglePlay() {
+    if (audio.paused) {
+      audio.play();
+      pauseBtn.textContent = '▌▌';
+    } else {
+      audio.pause();
+      pauseBtn.textContent = '►';
+    }
   },
   
   nextTrack() {
@@ -33,22 +57,6 @@ const audioController = {
   previousTrack() {
     const prev = (this.currentTrack - 1 + this.tracks.length) % this.tracks.length;
     this.playTrack(prev);
-  },
-  
-  togglePlay() {
-    if (audio.paused) {
-      audio.play();
-      pauseBtn.className = 'status-bar-field fa-solid fa-pause';
-    } else {
-      audio.pause();
-      pauseBtn.className = 'status-bar-field fa-solid fa-play';
-    }
-  },
-  
-  updateTime() {
-    const minutes = Math.floor(audio.currentTime / 60);
-    const seconds = Math.floor(audio.currentTime % 60);
-    songTime.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
   }
 };
 
@@ -133,8 +141,6 @@ document.addEventListener('DOMContentLoaded', () => {
   pauseBtn?.addEventListener('click', () => audioController.togglePlay());
   forwardBtn?.addEventListener('click', () => audioController.nextTrack());
   
-  audio?.addEventListener('timeupdate', () => audioController.updateTime());
-  
   // Enter screen handling
   $('.window-action-button.main')?.click(() => {
     if (enterScreen && mainScreen && audio) {
@@ -156,6 +162,21 @@ document.addEventListener('DOMContentLoaded', () => {
       $(this).css('transform', 'none');
     }
   });
+  
+  // Progress bar click handling
+  const progressBar = document.querySelector('.progress-bar');
+  if (progressBar) {
+    progressBar.addEventListener('click', (e) => {
+      const rect = progressBar.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const percentage = x / rect.width;
+      audio.currentTime = percentage * audio.duration;
+      audioController.updateProgress();
+    });
+  }
+  
+  // Update progress continuously
+  audio?.addEventListener('timeupdate', () => audioController.updateProgress());
 });
 
 // Export functions used by HTML

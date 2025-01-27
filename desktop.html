@@ -185,23 +185,20 @@ Start
 <!-- Volume Control -->
 <div class="volume-window draggable" id="volume">
     <div class="title-bar">
-        <div class="title-bar-text">Volume Control</div>
-        <div class="title-bar-controls">
-            <button aria-label="Close" onclick="togglePopup('volume')"></button>
-        </div>
+        <div class="title-bar-text">Volume</div>
     </div>
     <div class="window-body">
         <p>Currently playing:</p>
-        <ul id="songInfo">
-            <li id="songTitle">Dream World - TBOST</li>
-            <li id="songTime">0:00</li>
-            <li><input id="range26" type="range" min="0" max="50" value="50" /></li>
-        </ul>
-    </div>
-    <div class="status-bar">
-        <p id="backward" class="status-bar-field fa-solid fa-backward"></p>
-        <p id="pause" class="status-bar-field fa-solid fa-pause"></p>
-        <p id="forward" class="status-bar-field fa-solid fa-forward"></p>
+        <div id="songTitle">Dream World - TBOST</div>
+        <div id="songTime">0:11</div>
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+        <div class="player-controls">
+            <button class="control-button" id="backward">◄◄</button>
+            <button class="control-button" id="pause">▌▌</button>
+            <button class="control-button" id="forward">►►</button>
+        </div>
     </div>
 </div>
 
