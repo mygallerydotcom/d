@@ -1,3 +1,18 @@
+// IP Address Fetcher
+async function fetchAndDisplayIP() {
+    try {
+        const response = await fetch('https://api.ipify.org?format=json');
+        const data = await response.json();
+        document.getElementById('visitor-ip').textContent = `IP: ${data.ip}`;
+    } catch (error) {
+        console.error('Error fetching IP:', error);
+        document.getElementById('visitor-ip').textContent = 'IP: UNKNOWN';
+    }
+}
+
+// Initialize IP fetching when document loads
+document.addEventListener('DOMContentLoaded', fetchAndDisplayIP);
+
 // Glitch Text Effect
 class GlitchText {
     constructor(element) {
