@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PROTOCOL://LAYER.07</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="static-overlay"></div>
+    <div class="loading-screen" id="loading">
+        CONNECTING TO WIRED...
+        <div class="loading-bar"></div>
+        <div class="ip">IP: 192.168.1.1</div>
+    </div>
+
+    <div class="container">
+        <header>
+            <pre class="ascii">
+                    ████████╗██████╗     ███████╗███████╗ ██████╗████████╗
+                    ╚══██╔══╝██╔══██╗    ██╔════╝██╔════╝██╔════╝╚══██╔══╝
+                       ██║   ██████╔╝    █████╗  █████╗  ██║        ██║   
+                       ██║   ██╔══██╗    ██╔══╝  ██╔══╝  ██║        ██║   
+                       ██║   ██████╔╝    ███████╗███████╗╚██████╗   ██║   
+                       ╚═╝   ╚═════╝     ╚══════╝╚══════╝ ╚═════╝   ╚═╝   
+            </pre>
+        </header>
+
+        <nav>
+            <table class="nav-table" cellspacing="0" cellpadding="5" border="1">
+                <tr>
+                    <td><a href="#">[SYSTEM]</a></td>
+                    <td><a href="#">[PROTOCOLS]</a></td>
+                    <td><a href="#">[MEMORY]</a></td>
+                    <td><a href="#">[NAVI]</a></td>
+                </tr>
+            </table>
+        </nav>
+
+        <main>
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    SYSTEM://status
+                </div>
+                <div class="terminal-content">
+                    > INITIALIZING PROTOCOLS...<br>
+                    > ACCESSING WIRED...<br>
+                    > CONNECTING TO LAYER 7...<br>
+                    > WARNING: MEMORY CORRUPTION DETECTED<br>
+                    > ...<br>
+                    > WHO ARE YOU?<br>
+                    <span class="blink">_</span>
+                </div>
+            </div>
+
+            <div class="members-terminal">
+                <div class="terminal-header">
+                    TB://members.sys
+                </div>
+                <div class="terminal-content">
+                    <div class="member-list">
+                        <div class="member">
+                            <span class="status-dot active"></span>
+                            <span class="member-id">[TB-01]</span>
+                            <span class="member-name">SMASH</span>
+                            <span class="member-status">ACTIVE</span>
+                        </div>
+                        <div class="member">
+                            <span class="status-dot active"></span>
+                            <span class="member-id">[TB-02]</span>
+                            <span class="member-name">SIX</span>
+                            <span class="member-status">ACTIVE</span>
+                        </div>
+                        <div class="member">
+                            <span class="status-dot active"></span>
+                            <span class="member-id">[TB-03]</span>
+                            <span class="member-name">ZIX</span>
+                            <span class="member-status">ACTIVE</span>
+                        </div>
+                        <div class="member">
+                            <span class="status-dot"></span>
+                            <span class="member-id">[TB-04]</span>
+                            <span class="member-name">FRAUD</span>
+                            <span class="member-status">OFFLINE</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tb-status-box">
+                <table cellspacing="0" cellpadding="3" border="1">
+                    <tr>
+                        <td>TB STATUS</td>
+                        <td>OPERATIONAL</td>
+                    </tr>
+                    <tr>
+                        <td>TB MEMBERS</td>
+                        <td>04</td>
+                    </tr>
+                    <tr>
+                        <td>TB PROTOCOL</td>
+                        <td>ENCRYPTED</td>
+                    </tr>
+                    <tr>
+                        <td>TB SECTOR</td>
+                        <td>SECURE</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="status-box">
+                <table cellspacing="0" cellpadding="3" border="1">
+                    <tr>
+                        <td>STATUS</td>
+                        <td>CONNECTED</td>
+                    </tr>
+                    <tr>
+                        <td>LAYER</td>
+                        <td>07</td>
+                    </tr>
+                    <tr>
+                        <td>PROTOCOL</td>
+                        <td>ACTIVE</td>
+                    </tr>
+                </table>
+            </div>
+        </main>
+
+        <div class="connection-status">
+            <span class="blink">■</span> WIRED CONNECTION ESTABLISHED
+        </div>
+    </div>
+    <script src="effects.js"></script>
+</body>
+</html>
+
+
+
+
+// Glitch Text Effect
+class GlitchText {
+    constructor(element) {
+        this.element = element;
+        this.originalText = element.textContent;
+        this.chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&*';
+        this.isGlitching = false;
+    }
+
+    randomChar() {
+        return this.chars[Math.floor(Math.random() * this.chars.length)];
+    }
+
+    async glitch() {
+        if (this.isGlitching) return;
+        this.isGlitching = true;
+
+        const originalText = this.element.textContent;
+        const length = originalText.length;
+
+        for (let i = 0; i < 10; i++) {
+            let glitchedText = '';
+            for (let j = 0; j < length; j++) {
+                if (Math.random() < 0.3) {
+                    glitchedText += this.randomChar();
+                } else {
+                    glitchedText += originalText[j];
+                }
+            }
+            this.element.textContent = glitchedText;
+            await new Promise(resolve => setTimeout(resolve, 50));
+        }
+
+        this.element.textContent = originalText;
+        this.isGlitching = false;
+    }
+}
+
+// Terminal Effect
+class Terminal {
+    constructor(element) {
+        this.element = element;
+        this.lines = [
+            'INITIALIZING WIRED CONNECTION...',
+            'ACCESSING LAYER 7...',
+            'PROTOCOL SYNC: OK',
+            'MEMORY CHECK: OK',
+            'CONSCIOUSNESS DRIFT: DETECTED',
+            'LOADING NEURAL INTERFACE...',
+            'CONNECTION ESTABLISHED'
+        ];
+        this.currentLine = 0;
+        this.currentChar = 0;
+    }
+
+    async type() {
+        if (this.currentLine >= this.lines.length) return;
+
+        const line = this.lines[this.currentLine];
+        if (this.currentChar < line.length) {
+            this.element.innerHTML += line.charAt(this.currentChar);
+            this.currentChar++;
+            setTimeout(() => this.type(), 50);
+        } else {
+            this.element.innerHTML += '<br>';
+            this.currentLine++;
+            this.currentChar = 0;
+            setTimeout(() => this.type(), 500);
+        }
+    }
+}
